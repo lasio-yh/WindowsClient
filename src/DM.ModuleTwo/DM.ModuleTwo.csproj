@@ -141,12 +141,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\DM.Core\DM.Core.csproj">
-      <Project>{085a3767-0f46-4923-8eb5-596ce276fc47}</Project>
-      <Name>DM.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetDir)$(TargetFileName)" "$(TargetDir)plugin\" /y</PostBuildEvent>
