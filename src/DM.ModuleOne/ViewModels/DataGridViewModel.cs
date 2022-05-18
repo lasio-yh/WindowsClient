@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using Prism.Mvvm;
-using DM.Core.Model;
-using DM.Core.Services;
+using Core.Model;
+using Core.Services;
 
 namespace DM.ModuleOne.ViewModels
 {
