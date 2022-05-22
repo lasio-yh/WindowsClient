@@ -1,6 +1,6 @@
 ﻿using FirstFloor.ModernUI.Presentation;
 
-namespace Core.Interfaces
+namespace Core.Contracts
 {
     public interface ILinkGroupService
     {

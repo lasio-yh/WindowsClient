@@ -2,6 +2,7 @@
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Core.Services;
+using Core.Contracts;
 
 namespace Core
 {
@@ -22,6 +23,7 @@ namespace Core
         public void Initialize()
         {
             _container.RegisterType<ICustomerService, CustomerService>(new ContainerControlledLifetimeManager());
+            _container.RegisterType<IFileService, FileService>(new ContainerControlledLifetimeManager());
         }
     }
 }

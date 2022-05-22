@@ -5,7 +5,7 @@ using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Prism.Unity;
 using FirstFloor.ModernUI.Presentation;
-using Core.Interfaces;
+using Core.Contracts;
 
 namespace ShellApp
 {

@@ -35,6 +35,12 @@
       <HintPath>..\packages\ModernUI.WPF.1.0.8\lib\net45\FirstFloor.ModernUI.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FluentFTP, Version=37.0.2.0, Culture=neutral, PublicKeyToken=f4af092b1d8df44f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentFTP.37.0.2\lib\net45\FluentFTP.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.14\lib\net45\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
@@ -51,6 +57,9 @@
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Prism, Version=6.1.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Core.6.1.0\lib\net45\Prism.dll</HintPath>
       <Private>True</Private>
@@ -64,7 +73,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,12 +85,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IFileService.cs" />
+    <Compile Include="Contracts\IFTPService.cs" />
+    <Compile Include="Contracts\IHTTPService.cs" />
+    <Compile Include="Contracts\ILoggerService.cs" />
+    <Compile Include="Contracts\ISerialService.cs" />
+    <Compile Include="Contracts\ISOAPService.cs" />
+    <Compile Include="Contracts\ITCPService.cs" />
+    <Compile Include="Contracts\IUDPService.cs" />
+    <Compile Include="Model\ResultMapModel.cs" />
+    <Compile Include="Services\FileService.cs" />
+    <Compile Include="Services\FTPService.cs" />
+    <Compile Include="Services\HTTPService.cs" />
     <Compile Include="Services\ICustomerService.cs" />
-    <Compile Include="Interfaces\ILinkGroupService.cs" />
+    <Compile Include="Contracts\ILinkGroupService.cs" />
     <Compile Include="CoreModule.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\LoggerService.cs" />
+    <Compile Include="Services\PInvokeService.cs" />
+    <Compile Include="Services\SerialService.cs" />
+    <Compile Include="Services\SOAPService.cs" />
+    <Compile Include="Services\TCPService.cs" />
+    <Compile Include="Services\UDPService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

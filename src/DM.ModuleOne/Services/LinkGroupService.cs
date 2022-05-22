@@ -1,6 +1,6 @@
 ﻿using System;
 using FirstFloor.ModernUI.Presentation;
-using Core.Interfaces;
+using Core.Contracts;
 using DM.ModuleOne.Views;
 
 namespace DM.ModuleOne.Services
