@@ -3,7 +3,7 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <!-- default font settings -->
-    <sys:Double x:Key="DefaultFontSize">16</sys:Double>
+    <sys:Double x:Key="DefaultFontSize">14</sys:Double>
     <sys:Double x:Key="FixedFontSize">16.333</sys:Double>
 
     <sys:Double x:Key="ViewMaxWidth">1024</sys:Double>

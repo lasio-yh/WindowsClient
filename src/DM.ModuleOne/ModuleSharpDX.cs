@@ -2,13 +2,13 @@
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
 
-namespace DM.ModuleOne
+namespace Plugin.SharpDX
 {
-    public class ModuleOne : IModule
+    public class ModuleSharpDX : IModule
     {
         private readonly IUnityContainer _container;
         
-        public ModuleOne(IUnityContainer container)
+        public ModuleSharpDX(IUnityContainer container)
         {
             if (container == null)
             {

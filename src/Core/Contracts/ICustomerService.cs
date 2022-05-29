@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.Model;
 
-namespace Core.Services
+namespace Core.Contracts
 {
     public interface ICustomerService
     {

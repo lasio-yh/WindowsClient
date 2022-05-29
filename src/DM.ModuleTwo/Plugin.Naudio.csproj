@@ -7,8 +7,8 @@
     <ProjectGuid>{9D0FFEDA-5F0D-489C-AEC8-603D2405CA0D}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DM.ModuleTwo</RootNamespace>
-    <AssemblyName>DM.ModuleTwo</AssemblyName>
+    <RootNamespace>Plugin.Naudio</RootNamespace>
+    <AssemblyName>Plugin.Naudio</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -89,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\LinkGroupService.cs" />
-    <Compile Include="ModuleTwo.cs" />
+    <Compile Include="ModuleNaudio.cs" />
     <Compile Include="ViewModels\DataGridViewModel.cs" />
     <Compile Include="Views\DataGrid.xaml.cs">
       <DependentUpon>DataGrid.xaml</DependentUpon>

@@ -24,6 +24,11 @@ namespace Core
         {
             _container.RegisterType<ICustomerService, CustomerService>(new ContainerControlledLifetimeManager());
             _container.RegisterType<IFileService, FileService>(new ContainerControlledLifetimeManager());
+            _container.RegisterType<IFTPService, FTPService>(new ContainerControlledLifetimeManager());
+            _container.RegisterType<IHTTPService, HTTPService>(new ContainerControlledLifetimeManager());
+            _container.RegisterType<ISerialService, SerialService>(new ContainerControlledLifetimeManager());
+            _container.RegisterType<ITCPService, TCPService>(new ContainerControlledLifetimeManager());
+            //_container.RegisterType<IUDPService, UDPService>(new ContainerControlledLifetimeManager());
         }
     }
 }

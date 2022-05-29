@@ -2,13 +2,13 @@
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
 
-namespace DM.ModuleTwo
+namespace Plugin.Naudio
 {
-    public class ModuleTwo : IModule
+    public class ModuleNaudio : IModule
     {
         private readonly IUnityContainer _container;
 
-        public ModuleTwo(IUnityContainer container)
+        public ModuleNaudio(IUnityContainer container)
         {
             if (container == null)
             {

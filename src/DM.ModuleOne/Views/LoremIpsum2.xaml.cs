@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace DM.ModuleOne.Views
+namespace Plugin.SharpDX.Views
 {
     /// <summary>
     /// Interaction logic for LoremIpsum2.xaml

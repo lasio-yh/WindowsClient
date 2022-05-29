@@ -13,12 +13,14 @@ namespace Core.Services
             get => _host;
             set => _host = string.IsNullOrEmpty(value) ? string.Empty : value;
         }
+
         public string _user = string.Empty;
         public string User
         {
             get => _user;
             set => _user = string.IsNullOrEmpty(value) ? string.Empty : value;
         }
+
         public string _password = string.Empty;
         public string Password
         {
@@ -35,6 +37,7 @@ namespace Core.Services
         /// <param name="host">FTP 호스트 서버</param>
         /// <param name="user">FTP 접속 계정</param>
         /// <param name="password">FTP 접속 비밀번호</param> 
+        /// <returns>ResultMapModel</returns>
         public ResultMapModel Open(string host, string user, string password)
         {
             try
@@ -45,6 +48,7 @@ namespace Core.Services
                 _client = new FluentFTP.FtpClient(_host);
                 _client.Credentials = new NetworkCredential(_user, _password);
                 _client.Connect();
+                
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -56,11 +60,13 @@ namespace Core.Services
         /// <summary>
         /// FTP 접속을 종료합니다.
         /// </summary>
+        /// <returns>ResultMapModel</returns>
         public ResultMapModel Close()
         {
             try
             {
                 _client.Disconnect();
+                
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -74,11 +80,13 @@ namespace Core.Services
         /// </summary>
         /// <param name="localPaht">로컬 파일경로.</param>
         /// <param name="remotePath">원격 파일경로.</param>
+        /// <returns>ResultMapModel</returns>
         public ResultMapModel DownLoad(string localPaht, string remotePath)
         {
             try
             {
                 var checkedSum = _client.DownloadFile(localPaht, remotePath, FluentFTP.FtpLocalExists.Overwrite, FluentFTP.FtpVerify.OnlyChecksum);
+                
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)

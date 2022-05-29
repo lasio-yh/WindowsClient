@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace DM.ModuleTwo.Views
+namespace Plugin.Naudio.Views
 {
     /// <summary>
     /// Interaction logic for LoremIpsum1.xaml

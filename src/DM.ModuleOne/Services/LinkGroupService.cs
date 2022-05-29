@@ -1,9 +1,9 @@
 ﻿using System;
 using FirstFloor.ModernUI.Presentation;
 using Core.Contracts;
-using DM.ModuleOne.Views;
+using Plugin.SharpDX.Views;
 
-namespace DM.ModuleOne.Services
+namespace Plugin.SharpDX.Services
 {
     /// <summary>
     /// Creates a LinkGroup
@@ -18,13 +18,13 @@ namespace DM.ModuleOne.Services
         {
             LinkGroup linkGroup = new LinkGroup
             {
-                DisplayName = "Module One"
+                DisplayName = "SharpDX"
             };
 
             linkGroup.Links.Add(new Link
             {
-                DisplayName = "Module One",
-                Source = new Uri($"/DM.ModuleOne;component/Views/{nameof(MainView)}.xaml", UriKind.Relative)
+                DisplayName = "SharpDX",
+                Source = new Uri($"/Plugin.SharpDX;component/Views/{nameof(MainView)}.xaml", UriKind.Relative)
             });
 
             return linkGroup;

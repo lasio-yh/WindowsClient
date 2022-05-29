@@ -1,10 +1,16 @@
 ﻿using Core.Contracts;
+using Core.Model;
+using System;
 using System.IO.Ports;
 
 namespace Core.Services
 {
     public class SerialService : ISerialService
     {
+        public delegate void CallBackHandler(object args);
+        public CallBackHandler NotifyCallBack;
+        bool _isRead = false;
+
         SerialPort _client;
         public SerialPort Client
         {
@@ -71,57 +77,187 @@ namespace Core.Services
             get => _client.IsOpen;
         }
 
-        bool _isRead = false;
-
-        public void Create(string portName)
+        /// <summary>
+        /// 시리얼통신 컨텍스트를 생성합니다.
+        /// </summary>
+        /// <param name="portName">COM 포트</param>
+        /// <returns>void</returns>
+        public ResultMapModel Create(string portName, CallBackHandler callBack)
         {
-            _portName = portName;
-            _client = new SerialPort();
-            _client.PortName = _portName;
-            _client.BaudRate = 9600;
-            _client.DataBits = 8;
-            _client.Parity = Parity.None;
-            _client.StopBits = StopBits.One;
+            try
+            {
+                _portName = portName;
+                _client = new SerialPort();
+                _client.PortName = _portName;
+                _client.BaudRate = 9600;
+                _client.DataBits = 8;
+                _client.Parity = Parity.None;
+                _client.StopBits = StopBits.One;
+                _client.DataReceived += OnDataReceived;
+                _client.Disposed += OnDisposed;
+                _client.ErrorReceived += OnErrorReceived;
+                _client.PinChanged += OnPinChanged;
+                NotifyCallBack = callBack;
+
+                return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
+            }
+            catch (Exception ex)
+            {
+                return new ResultMapModel { ResultId = "0x01", ResultMessage = ex.Message };
+            }
         }
 
-        public void Open()
+        /// <summary>
+        /// 시리얼 통신을 시작합니다.
+        /// </summary>
+        /// <returns>ResultMapModel</returns>
+        public ResultMapModel Open()
         {
-            _client.Open();
+            try
+            {
+                _client.Open();
+
+                return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
+            }
+            catch (Exception ex)
+            {
+                return new ResultMapModel { ResultId = "0x01", ResultMessage = ex.Message };
+            }
         }
 
-        public void Pause()
+        /// <summary>
+        /// 데이터 수신을 일시중지 합니다.
+        /// </summary>
+        /// <returns>ResultMapModel</returns>
+        public ResultMapModel Pause()
         {
-            _isRead = false;
+            try
+            {
+                _isRead = false;
+
+                return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
+            }
+            catch (Exception ex)
+            {
+                return new ResultMapModel { ResultId = "0x01", ResultMessage = ex.Message };
+            }
         }
 
-        public void Resume()
+        /// <summary>
+        /// 데이터 수신을 다시 시작합니다.
+        /// </summary>
+        /// <returns>ResultMapModel</returns>
+        public ResultMapModel Resume()
         {
-            _isRead = true;
+            try
+            {
+                _isRead = true;
+
+                return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
+            }
+            catch (Exception ex)
+            {
+                return new ResultMapModel { ResultId = "0x01", ResultMessage = ex.Message };
+            }
         }
 
-        public void Close()
+        /// <summary>
+        /// 시리얼통신을 종료합니다.
+        /// </summary>
+        /// <returns>ResultMapModel</returns>
+        public ResultMapModel Close()
         {
-            _client.Close();
+            try
+            {
+                _client.Close();
+
+                return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
+            }
+            catch (Exception ex)
+            {
+                return new ResultMapModel { ResultId = "0x01", ResultMessage = ex.Message };
+            }
         }
 
-        public void WriteLine(string text)
+        /// <summary>
+        /// 텍스트 형식의 데이터를 전송합니다.
+        /// </summary>
+        /// <param name="text">프로세스 명</param>
+        /// <returns>ResultMapModel</returns>
+        public ResultMapModel WriteLine(string text)
         {
-            _client.WriteLine(text);
+            try
+            {
+                _client.WriteLine(text);
+
+                return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
+            }
+            catch (Exception ex)
+            {
+                return new ResultMapModel { ResultId = "0x01", ResultMessage = ex.Message };
+            }
         }
 
-        public void Write(byte[] buffer, int offset, int count)
+        /// <summary>
+        /// 바이트 형식의 데이터를 전송합니다.
+        /// </summary>
+        /// <param name="buffer">전송 데이터</param>
+        /// <param name="offset">오프셋</param>
+        /// <param name="count">전송크기</param>
+        /// <returns>ResultMapModel</returns>
+        public ResultMapModel Write(byte[] buffer, int offset, int count)
         {
-            _client.Write(buffer, offset, count);
+            try
+            {
+                _client.Write(buffer, offset, count);
+
+                return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
+            }
+            catch (Exception ex)
+            {
+                return new ResultMapModel { ResultId = "0x01", ResultMessage = ex.Message };
+            }
         }
 
-        public void ReadLine()
+        private void OnDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             //Convert Object to Byte Array
             //Convert Byte Array to Object
-            while (_client.IsOpen && _isRead)
-            {
+            if (!_isRead)
+                return;
 
-            }
+            NotifyCallBack(new object());
+            throw new NotImplementedException();
+        }
+
+        private void OnPinChanged(object sender, SerialPinChangedEventArgs e)
+        {
+            //Convert Object to Byte Array
+            //Convert Byte Array to Object
+            if (!_isRead)
+                return;
+
+            throw new NotImplementedException();
+        }
+
+        private void OnErrorReceived(object sender, SerialErrorReceivedEventArgs e)
+        {
+            //Convert Object to Byte Array
+            //Convert Byte Array to Object
+            if (!_isRead)
+                return;
+
+            throw new NotImplementedException();
+        }
+
+        private void OnDisposed(object sender, EventArgs e)
+        {
+            //Convert Object to Byte Array
+            //Convert Byte Array to Object
+            if (!_isRead)
+                return;
+
+            throw new NotImplementedException();
         }
     }
 }

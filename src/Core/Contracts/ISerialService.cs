@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Core.Model;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static Core.Services.SerialService;
 
 namespace Core.Contracts
 {
@@ -21,13 +18,12 @@ namespace Core.Contracts
         bool DtrEnable { get; }
         bool IsOpen { get; }
 
-        void Create(string portName);
-        void Open();
-        void Pause();
-        void Resume();
-        void Close();
-        void WriteLine(string text);
-        void Write(byte[] buffer, int offset, int count);
-        void ReadLine();
+        ResultMapModel Create(string portName, CallBackHandler callBack);
+        ResultMapModel Open();
+        ResultMapModel Pause();
+        ResultMapModel Resume();
+        ResultMapModel Close();
+        ResultMapModel WriteLine(string text);
+        ResultMapModel Write(byte[] buffer, int offset, int count);
     }
 }

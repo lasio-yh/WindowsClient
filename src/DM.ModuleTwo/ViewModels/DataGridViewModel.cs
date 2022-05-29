@@ -3,8 +3,9 @@ using System.Linq;
 using Prism.Mvvm;
 using Core.Model;
 using Core.Services;
+using Core.Contracts;
 
-namespace DM.ModuleTwo.ViewModels
+namespace Plugin.Naudio.ViewModels
 {
     public class DataGridViewModel : BindableBase
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using FirstFloor.ModernUI.Presentation;
 using Core.Contracts;
-using DM.ModuleTwo.Views;
+using Plugin.Naudio.Views;
 
-namespace DM.ModuleTwo.Services
+namespace Plugin.Naudio.Services
 {
     /// <summary>
     /// Creates a LinkGroup
@@ -18,13 +18,13 @@ namespace DM.ModuleTwo.Services
         {
             LinkGroup linkGroup = new LinkGroup
             {
-                DisplayName = "Module Two"
+                DisplayName = "Naudio"
             };
 
             linkGroup.Links.Add(new Link
             {
-                DisplayName = "Module Two",
-                Source = new Uri($"/DM.ModuleTwo;component/Views/{nameof(MainView)}.xaml", UriKind.Relative)
+                DisplayName = "Naudio",
+                Source = new Uri($"/Plugin.Naudio;component/Views/{nameof(MainView)}.xaml", UriKind.Relative)
             });
 
             return linkGroup;

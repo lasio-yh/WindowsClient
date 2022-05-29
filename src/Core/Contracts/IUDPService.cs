@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Core.Model;
+using static Core.Services.UDPService;
 
 namespace Core.Contracts
 {
     public interface IUDPService
     {
-        void StartServer(int port);
-        void StopServer();
-        void Send(byte[] buffer, int length);
+        ResultMapModel Create();
+        ResultMapModel StartReceive(int port, CallBackHandler callBack);
+        ResultMapModel StopReceive();
+        ResultMapModel Send(byte[] buffer, int length);
     }
 }

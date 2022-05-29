@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using Prism.Mvvm;
 using Core.Model;
-using Core.Services;
 using Core.Contracts;
+using Core.Services;
 
 namespace ShellApp.ViewModels
 {
@@ -15,7 +15,7 @@ namespace ShellApp.ViewModels
             set { SetProperty(ref customers, value); }
         }
 
-        public DataGridViewModel(ICustomerService service)
+        public DataGridViewModel(ICustomerService service, ITCPService server)
         {
             Customers = new ObservableCollection<Customer>();
             Customers.AddRange(service.GetAllCustomers());

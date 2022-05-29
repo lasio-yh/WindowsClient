@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace ShellApp
 {
@@ -6,10 +7,25 @@ namespace ShellApp
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            base.OnStartup(e);
+            try
+            {
+                base.OnStartup(e);
+                Bootstrapper bootstrapper = new Bootstrapper();
+                bootstrapper.Run();
+            }
+            catch (NullReferenceException ex)
+            {
+                this.Shutdown();
+            }
+            catch (Exception ex)
+            {
+                this.Shutdown();
+            }
+        }
 
-            Bootstrapper bootstrapper = new Bootstrapper();
-            bootstrapper.Run();
+        protected override void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
         }
     }
 }

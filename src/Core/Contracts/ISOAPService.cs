@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Core.Model;
 using System.Threading.Tasks;
 
 namespace Core.Contracts
@@ -13,7 +10,7 @@ namespace Core.Contracts
         string Token { get; set; }
         string Header { get; set; }
         string Action { get; set; }
-        bool Bind();
+        ResultMapModel Create();
         Task<string> SendAsync();
     }
 }
