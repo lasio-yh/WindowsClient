@@ -6,6 +6,6 @@
     <sys:Double x:Key="DefaultFontSize">14</sys:Double>
     <sys:Double x:Key="FixedFontSize">16.333</sys:Double>
 
-    <sys:Double x:Key="ViewMaxWidth">1024</sys:Double>
+    <sys:Double x:Key="ViewMaxWidth">1920</sys:Double>
     
 </ResourceDictionary>

@@ -14,6 +14,13 @@
                 <ImageBrush Opacity=".2" ImageSource="dm-logo.png" Stretch="None" AlignmentX="Right" AlignmentY="Bottom" />
             </Rectangle.Fill>
         </Rectangle>
+
+        <Rectangle>
+            <Rectangle.Fill>
+                <ImageBrush Opacity=".3" ImageSource="background.macosx.jpg" Stretch="UniformToFill" />
+            </Rectangle.Fill>
+        </Rectangle>
+        
         <Rectangle>
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0, 0" EndPoint="0, .3" Opacity=".1">
@@ -24,5 +31,6 @@
             </Rectangle.Fill>
         </Rectangle>
     </Grid>
+
 
 </ResourceDictionary>
