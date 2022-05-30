@@ -5,7 +5,7 @@ using Core.Model;
 using Core.Services;
 using Core.Contracts;
 
-namespace Plugin.Naudio.ViewModels
+namespace Plugin.AccordNet.ViewModels
 {
     public class DataGridViewModel : BindableBase
     {

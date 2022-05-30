@@ -2,13 +2,13 @@
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
 
-namespace Plugin.Naudio
+namespace Plugin.AccordNet
 {
-    public class ModuleNaudio : IModule
+    public class AccordNetModule : IModule
     {
         private readonly IUnityContainer _container;
 
-        public ModuleNaudio(IUnityContainer container)
+        public AccordNetModule(IUnityContainer container)
         {
             if (container == null)
             {

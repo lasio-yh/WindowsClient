@@ -23,7 +23,19 @@ namespace Plugin.SharpDX.Services
 
             linkGroup.Links.Add(new Link
             {
-                DisplayName = "SharpDX",
+                DisplayName = "SharpDX1",
+                Source = new Uri($"/Plugin.SharpDX;component/Views/{nameof(MainView)}.xaml", UriKind.Relative)
+            });
+
+            linkGroup.Links.Add(new Link
+            {
+                DisplayName = "SharpDX2",
+                Source = new Uri($"/Plugin.SharpDX;component/Views/{nameof(MainView)}.xaml", UriKind.Relative)
+            });
+
+            linkGroup.Links.Add(new Link
+            {
+                DisplayName = "SharpDX3",
                 Source = new Uri($"/Plugin.SharpDX;component/Views/{nameof(MainView)}.xaml", UriKind.Relative)
             });
 

@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.SharpDX", "DM.Module
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugin", "Plugin", "{B4821B4E-FD33-4426-94BD-41CA302FB6DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.Naudio", "DM.ModuleTwo\Plugin.Naudio.csproj", "{9D0FFEDA-5F0D-489C-AEC8-603D2405CA0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.AccordNet", "DM.ModuleTwo\Plugin.AccordNet.csproj", "{9D0FFEDA-5F0D-489C-AEC8-603D2405CA0D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{085A3767-0F46-4923-8EB5-596CE276FC47} = {085A3767-0F46-4923-8EB5-596CE276FC47}
 	EndProjectSection

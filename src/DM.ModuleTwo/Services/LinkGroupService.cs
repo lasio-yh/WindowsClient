@@ -1,9 +1,9 @@
 ﻿using System;
 using FirstFloor.ModernUI.Presentation;
 using Core.Contracts;
-using Plugin.Naudio.Views;
+using Plugin.AccordNet.Views;
 
-namespace Plugin.Naudio.Services
+namespace Plugin.AccordNet.Services
 {
     /// <summary>
     /// Creates a LinkGroup
@@ -18,13 +18,25 @@ namespace Plugin.Naudio.Services
         {
             LinkGroup linkGroup = new LinkGroup
             {
-                DisplayName = "Naudio"
+                DisplayName = "AccordNet"
             };
 
             linkGroup.Links.Add(new Link
             {
-                DisplayName = "Naudio",
-                Source = new Uri($"/Plugin.Naudio;component/Views/{nameof(MainView)}.xaml", UriKind.Relative)
+                DisplayName = "AccordNet1",
+                Source = new Uri($"/Plugin.AccordNet;component/Views/{nameof(MainView)}.xaml", UriKind.Relative)
+            });
+
+            linkGroup.Links.Add(new Link
+            {
+                DisplayName = "AccordNet2",
+                Source = new Uri($"/Plugin.AccordNet;component/Views/{nameof(MainView)}.xaml", UriKind.Relative)
+            });
+
+            linkGroup.Links.Add(new Link
+            {
+                DisplayName = "AccordNet3",
+                Source = new Uri($"/Plugin.AccordNet;component/Views/{nameof(MainView)}.xaml", UriKind.Relative)
             });
 
             return linkGroup;

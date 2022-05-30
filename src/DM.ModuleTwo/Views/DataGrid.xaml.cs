@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Plugin.Naudio.Views
+namespace Plugin.AccordNet.Views
 {
     /// <summary>
     /// Interaction logic for DataGrid.xaml
