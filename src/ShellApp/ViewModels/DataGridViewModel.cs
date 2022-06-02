@@ -2,7 +2,6 @@
 using Prism.Mvvm;
 using Core.Model;
 using Core.Contracts;
-using Core.Services;
 
 namespace ShellApp.ViewModels
 {
