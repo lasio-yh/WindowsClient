@@ -6,11 +6,11 @@ using Core.Contracts;
 
 namespace Core
 {
-    public class CoreModule : IModule
+    public class ModuleCore : IModule
     {
         private readonly IUnityContainer _container;
 
-        public CoreModule(IUnityContainer container)
+        public ModuleCore(IUnityContainer container)
         {
             if (container == null)
             {

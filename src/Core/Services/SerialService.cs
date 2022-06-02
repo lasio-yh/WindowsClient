@@ -256,7 +256,7 @@ namespace Core.Services
             //Convert Byte Array to Object
             if (!_isRead)
                 return;
-
+            
             throw new NotImplementedException();
         }
     }

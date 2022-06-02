@@ -1,5 +1,6 @@
 ﻿using Core.Contracts;
 using Core.Model;
+using FluentFTP;
 using System;
 using System.Net;
 
@@ -28,7 +29,7 @@ namespace Core.Services
             set => _password = string.IsNullOrEmpty(value) ? string.Empty : value;
         }
 
-        public FluentFTP.FtpClient _client;
+        public FtpClient _client;
         public bool State { get => _client.IsConnected; }
 
         /// <summary>
@@ -45,7 +46,7 @@ namespace Core.Services
                 Host = host;
                 User = user;
                 Password = password;
-                _client = new FluentFTP.FtpClient(_host);
+                _client = new FtpClient(_host);
                 _client.Credentials = new NetworkCredential(_user, _password);
                 _client.Connect();
                 

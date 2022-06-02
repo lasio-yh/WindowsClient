@@ -95,7 +95,7 @@
     <Compile Include="Services\HTTPService.cs" />
     <Compile Include="Contracts\ICustomerService.cs" />
     <Compile Include="Contracts\ILinkGroupService.cs" />
-    <Compile Include="CoreModule.cs" />
+    <Compile Include="ModuleCore.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CustomerService.cs" />
@@ -106,7 +106,9 @@
     <Compile Include="Services\UDPService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\App.config" />
+    <None Include="Assets\App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
