@@ -14,16 +14,17 @@ namespace ShellApp
                 Bootstrapper bootstrapper = new Bootstrapper();
                 bootstrapper.Run();
                 ToastService.Create();
-                ToastService.ShowInfo("11111");
-                ToastService.ShowWarn("2222");
+                ToastService.ShowInfo("Starting Application.");
             }
             catch (NullReferenceException ex)
             {
+                ToastService.ShowError(ex.Message);
                 ToastService.Dispose();
                 this.Shutdown();
             }
             catch (Exception ex)
             {
+                ToastService.ShowError(ex.Message);
                 ToastService.Dispose();
                 this.Shutdown();
             }
@@ -31,6 +32,7 @@ namespace ShellApp
 
         protected override void OnExit(ExitEventArgs e)
         {
+            ToastService.ShowInfo("Exit Application.");
             ToastService.Dispose();
             base.OnExit(e);
         }

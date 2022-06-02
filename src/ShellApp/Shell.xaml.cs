@@ -11,7 +11,7 @@ namespace ShellApp
         public Shell()
         {
             InitializeComponent();
-            AppearanceManager.Current.ThemeSource = new Uri(ThemesPath.DM, UriKind.Relative);
+            AppearanceManager.Current.ThemeSource = new Uri(ThemesPath.Light, UriKind.Relative);
         }
 
         public void AddLinkGroups(LinkGroupCollection linkGroupCollection)

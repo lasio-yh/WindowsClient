@@ -82,7 +82,7 @@ namespace ShellApp
 
             // Module CoreModule is defined in the code.
             var moduleCatalog = (ModuleCatalog)ModuleCatalog;
-            moduleCatalog.AddModule(typeof(Core.CoreModule));
+            moduleCatalog.AddModule(typeof(Core.ModuleCore));
         }
 
         private bool InterfaceFilter(Type typeObj, Object criteriaObj)

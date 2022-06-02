@@ -11,6 +11,8 @@ namespace ShellApp.Constants
     public class ToastService
     {
         public static Notifier Notifier;
+        public static int LifeSecond = 3;
+        public static int FromCount = 5;
         public static void Create()
         {
             Notifier = new Notifier(cfg =>
@@ -22,17 +24,16 @@ namespace ShellApp.Constants
                     offsetY: 10);
 
                 cfg.LifetimeSupervisor = new TimeAndCountBasedLifetimeSupervisor(
-                    notificationLifetime: TimeSpan.FromSeconds(3),
-                    maximumNotificationCount: MaximumNotificationCount.FromCount(5));
+                    notificationLifetime: TimeSpan.FromSeconds(LifeSecond),
+                    maximumNotificationCount: MaximumNotificationCount.FromCount(FromCount));
 
                 cfg.Dispatcher = Application.Current.Dispatcher;
             });
         }
 
         /// <summary>
-        /// 파일 저장하기
+        /// Toast 객체 지우기
         /// </summary>
-        /// <param name="message">디렉토리 경로</param>
         /// <returns>ResultMapModel</returns>
         public static ResultMapModel Dispose()
         {
@@ -49,9 +50,9 @@ namespace ShellApp.Constants
         }
 
         /// <summary>
-        /// 파일 저장하기
+        /// 알림 일반
         /// </summary>
-        /// <param name="message">디렉토리 경로</param>
+        /// <param name="message">알림 메시지</param>
         /// <returns>ResultMapModel</returns>
         public static ResultMapModel ShowInfo(string message)
         {
@@ -69,9 +70,9 @@ namespace ShellApp.Constants
 
 
         /// <summary>
-        /// 파일 저장하기
+        /// 알림 적용
         /// </summary>
-        /// <param name="message">디렉토리 경로</param>
+        /// <param name="message">알림 메시지</param>
         /// <returns>ResultMapModel</returns>
         public static ResultMapModel ShowOk(string message)
         {
@@ -89,9 +90,9 @@ namespace ShellApp.Constants
 
 
         /// <summary>
-        /// 파일 저장하기
+        /// 알림 경고
         /// </summary>
-        /// <param name="message">디렉토리 경로</param>
+        /// <param name="message">알림 메시지</param>
         /// <returns>ResultMapModel</returns>
         public static ResultMapModel ShowWarn(string message)
         {
@@ -109,9 +110,9 @@ namespace ShellApp.Constants
 
 
         /// <summary>
-        /// 파일 저장하기
+        /// 알림 오류
         /// </summary>
-        /// <param name="message">디렉토리 경로</param>
+        /// <param name="message">알림 메시지</param>
         /// <returns>ResultMapModel</returns>
         public static ResultMapModel ShowError(string message)
         {

@@ -136,6 +136,10 @@
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Themes\LightCustom2ImageTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\LightBingImageTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -192,15 +196,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\DMTheme.xaml">
+    <Page Include="Themes\LightCustom1ImageTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\MacOSXTheme.xaml">
+    <Page Include="Themes\DarkCustom1ImageTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\Windows10Theme.xaml">
+    <Page Include="Themes\DarkCustom2ImageTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -248,10 +252,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\background.macosx.jpg" />
+    <Resource Include="Themes\background1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\background.windows10.jpg" />
+    <Resource Include="Themes\background2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Themes\logo.png" />

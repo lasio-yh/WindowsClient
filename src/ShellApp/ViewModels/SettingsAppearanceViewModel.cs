@@ -53,14 +53,15 @@ namespace ShellApp.ViewModels
             //this.themes.Add(new Link { DisplayName = "dark", Source = AppearanceManager.DarkThemeSource });
 
             // add additional themes
-            this.themes.Add(new Link { DisplayName = "dynamic modules", Source = new Uri(ThemesPath.DM, UriKind.Relative) });
             this.themes.Add(new Link { DisplayName = "light", Source = new Uri(ThemesPath.Light, UriKind.Relative) });
             this.themes.Add(new Link { DisplayName = "dark", Source = new Uri(ThemesPath.Dark, UriKind.Relative) });
             this.themes.Add(new Link { DisplayName = "light bing image", Source = new Uri(ThemesPath.LightBingImage, UriKind.Relative) });
             this.themes.Add(new Link { DisplayName = "dark bing image", Source = new Uri(ThemesPath.DarkBingImage, UriKind.Relative) });
-            this.themes.Add(new Link { DisplayName = "windows 10", Source = new Uri(ThemesPath.Windows10, UriKind.Relative) });
-            this.themes.Add(new Link { DisplayName = "mac osx", Source = new Uri(ThemesPath.MacOSX, UriKind.Relative) });
-
+            this.themes.Add(new Link { DisplayName = "light custom 1 image", Source = new Uri(ThemesPath.LightCustom1ImageTheme, UriKind.Relative) });
+            this.themes.Add(new Link { DisplayName = "dark custom 1 image", Source = new Uri(ThemesPath.DarkCustom1ImageTheme, UriKind.Relative) });
+            this.themes.Add(new Link { DisplayName = "light custom 2 image", Source = new Uri(ThemesPath.LightCustom2ImageTheme, UriKind.Relative) });
+            this.themes.Add(new Link { DisplayName = "dark custom 2 image", Source = new Uri(ThemesPath.DarkCustom2ImageTheme, UriKind.Relative) });
+      
             this.SelectedFontSize = AppearanceManager.Current.FontSize == FontSize.Large ? FontLarge : FontSmall;
             SyncThemeAndColor();
 
