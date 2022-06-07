@@ -13,27 +13,27 @@ namespace ShellApp
                 base.OnStartup(e);
                 Bootstrapper bootstrapper = new Bootstrapper();
                 bootstrapper.Run();
-                ToastService.Create();
-                ToastService.ShowInfo("Starting Application.");
+                ToastNotify.Create();
+                ToastNotify.ShowInfo("Starting Application.");
             }
             catch (NullReferenceException ex)
             {
-                ToastService.ShowError(ex.Message);
-                ToastService.Dispose();
+                ToastNotify.ShowError(ex.Message);
+                ToastNotify.Dispose();
                 this.Shutdown();
             }
             catch (Exception ex)
             {
-                ToastService.ShowError(ex.Message);
-                ToastService.Dispose();
+                ToastNotify.ShowError(ex.Message);
+                ToastNotify.Dispose();
                 this.Shutdown();
             }
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
-            ToastService.ShowInfo("Exit Application.");
-            ToastService.Dispose();
+            ToastNotify.ShowInfo("Exit Application.");
+            ToastNotify.Dispose();
             base.OnExit(e);
         }
     }

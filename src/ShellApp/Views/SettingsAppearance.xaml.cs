@@ -1,30 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using FirstFloor.ModernUI.Presentation;
-using ShellApp.ViewModels;
+﻿using System.Windows.Controls;
+using FirstFloor.ModernUI.Windows.Navigation;
+using FirstFloor.ModernUI.Windows;
 
 namespace ShellApp.Views
 {
     /// <summary>
     /// Interaction logic for SettingsAppearance.xaml
     /// </summary>
-    public partial class SettingsAppearance : UserControl
+    public partial class SettingsAppearance : UserControl, IContent
     {
         public SettingsAppearance()
         {
             InitializeComponent();
+        }
+
+        public void OnFragmentNavigation(FragmentNavigationEventArgs e)
+        {
+
+        }
+
+        public void OnNavigatedFrom(NavigationEventArgs e)
+        {
+
+        }
+
+        public void OnNavigatedTo(NavigationEventArgs e)
+        {
+
+        }
+
+        public void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+
         }
     }
 }

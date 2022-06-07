@@ -1,4 +1,7 @@
 ﻿using System.Windows.Controls;
+using FirstFloor.ModernUI.Windows;
+using FirstFloor.ModernUI.Windows.Navigation;
+using ShellApp.Constants;
 
 namespace ShellApp.Views
 {

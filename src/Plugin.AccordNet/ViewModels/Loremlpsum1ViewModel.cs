@@ -6,19 +6,19 @@ using Core.Contracts;
 
 namespace Plugin.AccordNet.ViewModels
 {
-    public class DataGridViewModel : BindableBase
+    public class Loremlpsum1ViewModel : BindableBase
     {
         private ObservableCollection<Customer> customers;
-        public ObservableCollection<Customer> Customers
+        public ObservableCollection<Customer> Customers1
         {
             get { return customers; }
             set { SetProperty(ref customers, value); }
         }
 
-        public DataGridViewModel(ICustomerService service)
+        public Loremlpsum1ViewModel(ICustomerService service)
         {
-            Customers = new ObservableCollection<Customer>();
-            Customers.AddRange(service.GetAllCustomers().OrderBy(c => c.LastName));
+            Customers1 = new ObservableCollection<Customer>();
+            Customers1.AddRange(service.GetAllCustomers().OrderBy(c => c.LastName));
         }
     }
 }

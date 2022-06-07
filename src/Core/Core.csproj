@@ -91,7 +91,9 @@
     <Compile Include="Contracts\ISOAPService.cs" />
     <Compile Include="Contracts\ITCPService.cs" />
     <Compile Include="Contracts\IUDPService.cs" />
+    <Compile Include="Model\ISampleModel.cs" />
     <Compile Include="Model\ResultMapModel.cs" />
+    <Compile Include="Model\SampleModel.cs" />
     <Compile Include="Services\FileService.cs" />
     <Compile Include="Services\FTPService.cs" />
     <Compile Include="Services\HTTPService.cs" />
@@ -110,9 +112,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

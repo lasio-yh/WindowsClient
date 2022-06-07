@@ -11,7 +11,7 @@ namespace ShellApp
         public Shell()
         {
             InitializeComponent();
-            AppearanceManager.Current.ThemeSource = new Uri(ThemesPath.Light, UriKind.Relative);
+            AppearanceManager.Current.ThemeSource = new Uri(ThemesPath.DarkCustom2ImageTheme, UriKind.Relative);
         }
 
         public void AddLinkGroups(LinkGroupCollection linkGroupCollection)
@@ -49,26 +49,26 @@ namespace ShellApp
 
             linkGroup.Links.Add(new Link
             {
-                DisplayName = "Dynamic Modules",
-                Source = GetUri(typeof(IntroductionView))
+                DisplayName = "Layout Page",
+                Source = GetUri(typeof(LayoutPage))
             });
 
             linkGroup.Links.Add(new Link
             {
-                DisplayName = "Modern UI for WPF",
-                Source = GetUri(typeof(MUIView))
+                DisplayName = "Split Page",
+                Source = GetUri(typeof(SplitPage))
             });
 
             linkGroup.Links.Add(new Link
             {
-                DisplayName = "Data Grid",
-                Source = GetUri(typeof(DataGrid))
+                DisplayName = "List Page",
+                Source = GetUri(typeof(ListPage))
             });
 
             linkGroup.Links.Add(new Link
             {
-                DisplayName = "Lorem Ipsum",
-                Source = GetUri(typeof(LoremIpsumView))
+                DisplayName = "Tab Page",
+                Source = GetUri(typeof(TabPage))
             });
 
             this.MenuLinkGroups.Add(linkGroup);

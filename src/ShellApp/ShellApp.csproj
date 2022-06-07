@@ -104,34 +104,41 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Constants\EditDialog.cs" />
     <Compile Include="Constants\ThemesPath.cs" />
-    <Compile Include="Constants\ToastService.cs" />
+    <Compile Include="Constants\ToastNotify.cs" />
+    <Compile Include="ViewModels\DashBoardViewModel.cs" />
     <Compile Include="ViewModels\DataGridViewModel.cs" />
+    <Compile Include="ViewModels\EditorViewModel.cs" />
+    <Compile Include="ViewModels\ImageListViewModel.cs" />
     <Compile Include="Views\DataGrid.xaml.cs">
       <DependentUpon>DataGrid.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\IntroductionView.xaml.cs">
-      <DependentUpon>IntroductionView.xaml</DependentUpon>
+    <Compile Include="Views\DashBoard.xaml.cs">
+      <DependentUpon>DashBoard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LoremIpsum3.xaml.cs">
-      <DependentUpon>LoremIpsum3.xaml</DependentUpon>
+    <Compile Include="Views\ListPage.xaml.cs">
+      <DependentUpon>ListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LoremIpsum2.xaml.cs">
-      <DependentUpon>LoremIpsum2.xaml</DependentUpon>
+    <Compile Include="Views\Editor.xaml.cs">
+      <DependentUpon>Editor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LoremIpsum1.xaml.cs">
-      <DependentUpon>LoremIpsum1.xaml</DependentUpon>
+    <Compile Include="Views\ImageList.xaml.cs">
+      <DependentUpon>ImageList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SplitPage.xaml.cs">
+      <DependentUpon>SplitPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsAppearance.xaml.cs">
       <DependentUpon>SettingsAppearance.xaml</DependentUpon>
     </Compile>
     <Compile Include="Themes\BingImage.cs" />
     <Compile Include="ViewModels\SettingsAppearanceViewModel.cs" />
-    <Compile Include="Views\MUIView.xaml.cs">
-      <DependentUpon>MUIView.xaml</DependentUpon>
+    <Compile Include="Views\LayoutPage.xaml.cs">
+      <DependentUpon>LayoutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LoremIpsumView.xaml.cs">
-      <DependentUpon>LoremIpsumView.xaml</DependentUpon>
+    <Compile Include="Views\TabPage.xaml.cs">
+      <DependentUpon>TabPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
@@ -156,19 +163,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\IntroductionView.xaml">
+    <Page Include="Views\DashBoard.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\LoremIpsum3.xaml">
+    <Page Include="Views\ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Editor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\LoremIpsum2.xaml">
+    <Page Include="Views\ImageList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\LoremIpsum1.xaml">
+    <Page Include="Views\SplitPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -208,11 +219,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\MUIView.xaml">
+    <Page Include="Views\LayoutPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\LoremIpsumView.xaml">
+    <Page Include="Views\TabPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

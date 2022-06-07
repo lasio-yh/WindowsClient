@@ -94,8 +94,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\LinkGroupService.cs" />
-    <Compile Include="AccordNetModule.cs" />
+    <Compile Include="ModuleAccordNet.cs" />
     <Compile Include="ViewModels\DataGridViewModel.cs" />
+    <Compile Include="ViewModels\Loremlpsum1ViewModel.cs" />
     <Compile Include="Views\DataGrid.xaml.cs">
       <DependentUpon>DataGrid.xaml</DependentUpon>
     </Compile>
@@ -150,9 +151,7 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetDir)$(TargetFileName)" "$(TargetDir)plugin\" /y</PostBuildEvent>

@@ -39,6 +39,7 @@ namespace Core.Services
             {
                 if (!Directory.Exists(folderPath))
                     Directory.CreateDirectory(folderPath);
+
                 var fileContent = JsonConvert.SerializeObject(content);
                 File.WriteAllText(Path.Combine(folderPath, fileName), fileContent, Encoding.UTF8);
                

@@ -11,6 +11,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
+
     <Grid Style="{StaticResource ContentRoot}" MaxWidth="{StaticResource ViewMaxWidth}" HorizontalAlignment="Left">
         <Grid.Resources>
             <!--Create list of enumeration values-->
@@ -20,19 +21,84 @@
                 </ObjectDataProvider.MethodParameters>
             </ObjectDataProvider>
         </Grid.Resources>
-        
-        <DockPanel>
-            <TextBlock DockPanel.Dock="Top" Text="COMMON EXAMPLE TABLE" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
-            <DataGrid ItemsSource="{Binding Customers}" AutoGenerateColumns="False" >
-                <DataGrid.Columns>
-                    <mui:DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"/>
-                    <mui:DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
-                    <mui:DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
-                    <mui:DataGridCheckBoxColumn Header="Is Member" Binding="{Binding IsMember}" />
-                    <mui:DataGridComboBoxColumn Header="Order Status" SelectedItemBinding="{Binding Status}" ItemsSource="{Binding Source={StaticResource myEnum}}" />
-                </DataGrid.Columns>
-            </DataGrid>
-        </DockPanel>
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="{StaticResource Button3}" Command="{Binding Button3Command}"/>
+                <Separator/>
+                <MenuItem Header="{StaticResource Button4}" Command="{Binding Button4Command }"/>
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <ScrollViewer>
+            <StackPanel>
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Top"  Margin="0,0,0,0" FlowDirection="LeftToRight" Orientation="Vertical">
+                        <TextBlock Text="COMMON EXAMPLE TABLE" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+                        <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal">
+                            <mui:ModernButton HorizontalAlignment="Left" 
+                                      Content="{StaticResource Button1}"
+                                      Margin="10,10,10,10" 
+                                      Command="{Binding Button1Command}"
+                                      EllipseStrokeThickness="2" 
+                                      EllipseDiameter="30" 
+                                      IconWidth="15" 
+                                      IconHeight="15" 
+                                      IconData="M 16 3 C 12.964844 3 10.414063 4.964844 9.375 7.625 L 11.21875 8.375 C 11.976563 6.433594 13.835938 5 16 5 C 18.753906 5 21 7.246094 21 10 L 21 13 L 6 13 L 6 29 L 26 29 L 26 13 L 23 13 L 23 10 C 23 6.15625 19.84375 3 16 3 Z M 8 15 L 24 15 L 24 27 L 8 27 Z" />
+                            <mui:ModernButton HorizontalAlignment="Left" 
+                                      Content="{StaticResource Button2}"
+                                      Margin="10,10,10,10" 
+                                      Command="{Binding Button2Command}" 
+                                      EllipseStrokeThickness="2" 
+                                      EllipseDiameter="30" 
+                                      IconWidth="15" 
+                                      IconHeight="15" 
+                                      IconData="M 16 3 C 12.15625 3 9 6.15625 9 10 L 9 13 L 6 13 L 6 29 L 26 29 L 26 13 L 23 13 L 23 10 C 23 6.15625 19.84375 3 16 3 Z M 16 5 C 18.753906 5 21 7.246094 21 10 L 21 13 L 11 13 L 11 10 C 11 7.246094 13.246094 5 16 5 Z M 8 15 L 24 15 L 24 27 L 8 27 Z" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel DockPanel.Dock="Bottom" Margin="0,0,0,0" FlowDirection="LeftToRight" Orientation="Vertical">
+                        <Grid Style="{StaticResource ContentRoot}" MaxWidth="{StaticResource ViewMaxWidth}">
+                            <ScrollViewer>
+                                <StackPanel >
+                                    <TextBlock Text="MODERN UI FOR WPF" Style="{StaticResource Heading1}" Margin="0,0,0,8"/>
+                                    <mui:BBCodeBlock BBCode="[b]Modern UI for WPF[/b], a set of controls and styles converting your WPF application into a great looking Modern UI app.&#13;&#10;&#13;&#10;This open source project is a spin-off of [url=http://xamlspy.com]XAML Spy[/url], the visual runtime inspector for Silverlight, Windows Phone, Windows Store and WPF.&#13;&#10;&#13;&#10;See the [url=https://github.com/firstfloorsoftware/mui/wiki]online documentation[/url] to learn more about how to incorporate [b]Modern UI for WPF[/b] into your applications." Margin="0,0,0,32" />
+                                    <TextBlock Text="APPEARANCE" Style="{StaticResource Heading2}" />
+                                    <mui:BBCodeBlock BBCode="The appearance of Modern UI styled windows can be changed on the fly. Make sure you visit the [url=/Views/SettingsView.xaml]settings[/url] to adapt the appearance to your preference." Margin="0,0,0,32"/>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Grid>
+                        <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal">
+                            <mui:ModernButton HorizontalAlignment="Left" 
+                                      Content="{StaticResource Button1}"
+                                      Margin="10,10,10,10" 
+                                      Command="{Binding Button1Command}"
+                                      EllipseStrokeThickness="2" 
+                                      EllipseDiameter="30" 
+                                      IconWidth="15" 
+                                      IconHeight="15" 
+                                      IconData="M 16 3 C 12.964844 3 10.414063 4.964844 9.375 7.625 L 11.21875 8.375 C 11.976563 6.433594 13.835938 5 16 5 C 18.753906 5 21 7.246094 21 10 L 21 13 L 6 13 L 6 29 L 26 29 L 26 13 L 23 13 L 23 10 C 23 6.15625 19.84375 3 16 3 Z M 8 15 L 24 15 L 24 27 L 8 27 Z" />
+                            <mui:ModernButton HorizontalAlignment="Left" 
+                                      Content="{StaticResource Button2}"
+                                      Margin="10,10,10,10" 
+                                      Command="{Binding Button2Command}" 
+                                      EllipseStrokeThickness="2" 
+                                      EllipseDiameter="30" 
+                                      IconWidth="15" 
+                                      IconHeight="15" 
+                                      IconData="M 16 3 C 12.15625 3 9 6.15625 9 10 L 9 13 L 6 13 L 6 29 L 26 29 L 26 13 L 23 13 L 23 10 C 23 6.15625 19.84375 3 16 3 Z M 16 5 C 18.753906 5 21 7.246094 21 10 L 21 13 L 11 13 L 11 10 C 11 7.246094 13.246094 5 16 5 Z M 8 15 L 24 15 L 24 27 L 8 27 Z" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <DataGrid ItemsSource="{Binding Customers}" AutoGenerateColumns="False" Background="Transparent" >
+                        <DataGrid.Columns>
+                            <mui:DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"/>
+                            <mui:DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
+                            <mui:DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                            <mui:DataGridCheckBoxColumn Header="Is Member" Binding="{Binding IsMember}" />
+                            <mui:DataGridComboBoxColumn Header="Order Status" SelectedItemBinding="{Binding Status}" ItemsSource="{Binding Source={StaticResource myEnum}}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
-    
 </UserControl>

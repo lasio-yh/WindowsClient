@@ -1,12 +1,14 @@
 ﻿using System.Collections.ObjectModel;
-using System.Linq;
 using Prism.Mvvm;
 using Core.Model;
 using Core.Contracts;
+using System.Windows.Input;
+using Prism.Commands;
+using Prism.Regions;
 
-namespace Plugin.AccordNet.ViewModels
+namespace ShellApp.ViewModels
 {
-    public class DataGridViewModel : BindableBase
+    public class DashBoardViewModel : BindableBase
     {
         private ObservableCollection<Customer> customers;
         public ObservableCollection<Customer> Customers
@@ -15,10 +17,10 @@ namespace Plugin.AccordNet.ViewModels
             set { SetProperty(ref customers, value); }
         }
 
-        public DataGridViewModel(ICustomerService service)
+        public DashBoardViewModel(ICustomerService service)
         {
             Customers = new ObservableCollection<Customer>();
-            Customers.AddRange(service.GetAllCustomers().OrderBy(c => c.LastName));
+            Customers.AddRange(service.GetAllCustomers());
         }
     }
 }

@@ -3,17 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:core="clr-namespace:System;assembly=mscorlib"
+             xmlns:model="clr-namespace:Core.Model;assembly=Core"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
     <Grid MaxWidth="{StaticResource ViewMaxWidth}" HorizontalAlignment="Left">
-        <ScrollViewer>
+        <Grid.Resources>
+            <!--Create list of enumeration values-->
+            <ObjectDataProvider x:Key="myEnum" MethodName="GetValues" ObjectType="{x:Type core:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type Type="model:OrderStatus"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+        </Grid.Resources>
+
+        <DockPanel>
+            <TextBlock DockPanel.Dock="Top" Text="MODULE TWO EXAMPLE TABLE" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+            <DataGrid ItemsSource="{Binding Customers1}" AutoGenerateColumns="False" >
+                <DataGrid.Columns>
+                    <mui:DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"/>
+                    <mui:DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
+                    <mui:DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                    <mui:DataGridCheckBoxColumn Header="Is Member" Binding="{Binding IsMember}" />
+                    <mui:DataGridComboBoxColumn Header="Order Status" SelectedItemBinding="{Binding Status}" ItemsSource="{Binding Source={StaticResource myEnum}}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+        <!--<ScrollViewer>
             <StackPanel MinWidth="200">
                 <TextBlock Text="MODULE TWO LOREM IPSUM 1" Margin="0,0,0,8" Style="{StaticResource Heading2}" />
                 <TextBlock Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mollis ultrices dui, vitae dapibus metus vehicula vel. Vivamus non enim lectus, vitae semper lectus. Cras arcu urna, dictum vitae elementum nec, lobortis eu ipsum. Ut vestibulum feugiat erat non semper. In porttitor viverra dolor bibendum viverra. Morbi ultrices pharetra metus id tristique. Vestibulum arcu lacus, dignissim vitae laoreet in, posuere quis dolor." Margin="0,0,0,8" TextWrapping="Wrap" />
                 <TextBlock Text="Cras pellentesque varius arcu, ac gravida neque ultricies varius. Nam eget vestibulum ante. Vestibulum semper odio id metus accumsan consequat. Ut ut gravida sem. Vestibulum eu orci massa. Integer non euismod libero. Cras tempor, metus quis scelerisque tincidunt, mi sem interdum neque, sed porttitor sem purus quis lorem. Maecenas pretium interdum dui, ut commodo ante porttitor sed. Vivamus orci diam, bibendum id elementum vel, convallis ut odio. Etiam commodo nisl vestibulum neque facilisis in molestie justo pretium. Sed porta, nunc non egestas posuere, turpis neque posuere est, nec rhoncus leo quam auctor ante. Quisque blandit, urna eget convallis bibendum, nibh ante cursus mauris, sit amet tristique lectus lacus ac ipsum. Sed luctus lectus vel ipsum egestas rutrum. Donec aliquam dapibus euismod. Sed id lectus libero, ac feugiat diam. Nunc porttitor tincidunt dui nec porttitor." Margin="0,0,0,8" TextWrapping="Wrap"/>
             </StackPanel>
-        </ScrollViewer>
+        </ScrollViewer>-->
     </Grid>
 
 </UserControl>

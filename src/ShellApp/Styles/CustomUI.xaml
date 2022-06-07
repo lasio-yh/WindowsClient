@@ -5,7 +5,28 @@
     <!-- default font settings -->
     <sys:Double x:Key="DefaultFontSize">14</sys:Double>
     <sys:Double x:Key="FixedFontSize">16.333</sys:Double>
-
     <sys:Double x:Key="ViewMaxWidth">1920</sys:Double>
-    
+    <sys:String x:Key="Button1">Button1</sys:String>
+    <sys:String x:Key="Button2">Button2</sys:String>
+    <sys:String x:Key="Button3">Button3</sys:String>
+    <sys:String x:Key="Button4">Button4</sys:String>
+
+    <Style x:Key="MediumIconStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseIconStyle}">
+        <Setter Property="FontSize" Value="24" />
+    </Style>
+
+
+    <!--Extra Small size margins-->
+    <Thickness x:Key="XSmallLeftMargin">8, 0, 0, 0</Thickness>
+    <!--Small size margins-->
+    <Thickness x:Key="SmallLeftMargin">12, 0, 0, 0</Thickness>
+
+    <Style x:Key="ListTitleStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="TextWrapping" Value="NoWrap" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style x:Key="ListSubTitleStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="TextWrapping" Value="NoWrap" />
+    </Style>
 </ResourceDictionary>

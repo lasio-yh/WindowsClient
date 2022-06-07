@@ -8,7 +8,7 @@ using ToastNotifications.Messages;
 
 namespace ShellApp.Constants
 {
-    public class ToastService
+    public class ToastNotify
     {
         public static Notifier Notifier;
         public static int LifeSecond = 3;
@@ -39,6 +39,9 @@ namespace ShellApp.Constants
         {
             try
             {
+                if (Notifier == null)
+                    return new ResultMapModel { ResultId = "0x01", ResultMessage = "Fail" };
+
                 Notifier.Dispose();
 
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
@@ -58,6 +61,9 @@ namespace ShellApp.Constants
         {
             try
             {
+                if (Notifier == null)
+                    return new ResultMapModel { ResultId = "0x01", ResultMessage = "Fail" };
+
                 Notifier.ShowInformation(message);
 
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
@@ -78,6 +84,9 @@ namespace ShellApp.Constants
         {
             try
             {
+                if (Notifier == null)
+                    return new ResultMapModel { ResultId = "0x01", ResultMessage = "Fail" };
+
                 Notifier.ShowSuccess(message);
 
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
@@ -98,6 +107,9 @@ namespace ShellApp.Constants
         {
             try
             {
+                if (Notifier == null)
+                    return new ResultMapModel { ResultId = "0x01", ResultMessage = "Fail" };
+
                 Notifier.ShowWarning(message);
 
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
@@ -118,6 +130,9 @@ namespace ShellApp.Constants
         {
             try
             {
+                if (Notifier == null)
+                    return new ResultMapModel { ResultId = "0x01", ResultMessage = "Fail" };
+
                 Notifier.ShowError(message);
 
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
