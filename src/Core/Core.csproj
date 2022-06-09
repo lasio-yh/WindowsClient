@@ -90,6 +90,7 @@
     <Compile Include="Contracts\ISerialService.cs" />
     <Compile Include="Contracts\ISOAPService.cs" />
     <Compile Include="Contracts\ITCPService.cs" />
+    <Compile Include="Contracts\ITimerService.cs" />
     <Compile Include="Contracts\IUDPService.cs" />
     <Compile Include="Model\ISampleModel.cs" />
     <Compile Include="Model\ResultMapModel.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Services\SerialService.cs" />
     <Compile Include="Services\SOAPService.cs" />
     <Compile Include="Services\TCPService.cs" />
+    <Compile Include="Services\TimerService.cs" />
     <Compile Include="Services\UDPService.cs" />
   </ItemGroup>
   <ItemGroup>

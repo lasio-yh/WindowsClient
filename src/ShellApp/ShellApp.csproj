@@ -43,7 +43,7 @@
   <ItemGroup>
     <Reference Include="Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Release\Core.dll</HintPath>
+      <HintPath>..\bin\Debug\Core.dll</HintPath>
     </Reference>
     <Reference Include="FirstFloor.ModernUI, Version=1.0.8.0, Culture=neutral, PublicKeyToken=bc9b0c37bf06c6a9, processorArchitecture=MSIL">
       <HintPath>..\packages\ModernUI.WPF.1.0.8\lib\net45\FirstFloor.ModernUI.dll</HintPath>
@@ -108,11 +108,10 @@
     <Compile Include="Constants\ThemesPath.cs" />
     <Compile Include="Constants\ToastNotify.cs" />
     <Compile Include="ViewModels\DashBoardViewModel.cs" />
-    <Compile Include="ViewModels\DataGridViewModel.cs" />
-    <Compile Include="ViewModels\EditorViewModel.cs" />
-    <Compile Include="ViewModels\ImageListViewModel.cs" />
-    <Compile Include="Views\DataGrid.xaml.cs">
-      <DependentUpon>DataGrid.xaml</DependentUpon>
+    <Compile Include="ViewModels\ReportViewModel.cs" />
+    <Compile Include="ViewModels\ContenttViewModel.cs" />
+    <Compile Include="Views\Report.xaml.cs">
+      <DependentUpon>Report.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DashBoard.xaml.cs">
       <DependentUpon>DashBoard.xaml</DependentUpon>
@@ -120,11 +119,8 @@
     <Compile Include="Views\ListPage.xaml.cs">
       <DependentUpon>ListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Editor.xaml.cs">
-      <DependentUpon>Editor.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ImageList.xaml.cs">
-      <DependentUpon>ImageList.xaml</DependentUpon>
+    <Compile Include="Views\Content.xaml.cs">
+      <DependentUpon>Content.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SplitPage.xaml.cs">
       <DependentUpon>SplitPage.xaml</DependentUpon>
@@ -159,7 +155,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\DataGrid.xaml">
+    <Page Include="Views\Report.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -171,11 +167,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Editor.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\ImageList.xaml">
+    <Page Include="Views\Content.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -28,6 +28,7 @@ namespace Core
             _container.RegisterType<IHTTPService, HTTPService>(new ContainerControlledLifetimeManager());
             _container.RegisterType<ISerialService, SerialService>(new ContainerControlledLifetimeManager());
             _container.RegisterType<ITCPService, TCPService>(new ContainerControlledLifetimeManager());
+            _container.RegisterType<ITimerService, TimerService>(new ContainerControlledLifetimeManager());
             //_container.RegisterType<IUDPService, UDPService>(new ContainerControlledLifetimeManager());
         }
     }

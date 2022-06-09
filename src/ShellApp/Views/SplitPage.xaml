@@ -12,10 +12,8 @@
             <ColumnDefinition Width="6"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
-        <local:DashBoard Margin="{StaticResource SplitLeft}" />
+        <local:Report Margin="{StaticResource SplitLeft}" />
         <GridSplitter Grid.Column="1" />
-        <local:DataGrid Grid.Column="2" Margin="{StaticResource SplitRight}" />
+        <local:Content Grid.Column="2" Margin="{StaticResource SplitRight}" />
     </Grid>
-
 </UserControl>

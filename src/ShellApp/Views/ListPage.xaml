@@ -8,11 +8,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <mui:ModernTab SelectedSource="/Views/DataGrid.xaml" Layout="List">
+        <mui:ModernTab SelectedSource="/Views/Report.xaml" Layout="List">
             <mui:ModernTab.Links>
-                <mui:Link DisplayName="DataGrid" Source="/Views/DataGrid.xaml" />
-                <mui:Link DisplayName="ImageList" Source="/Views/ImageList.xaml" />
-                <mui:Link DisplayName="Editor" Source="/Views/Editor.xaml" />
+                <mui:Link DisplayName="Report" Source="/Views/Report.xaml" />
+                <mui:Link DisplayName="Content" Source="/Views/Content.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
     </Grid>

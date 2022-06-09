@@ -8,9 +8,10 @@
              d:DesignHeight="300" d:DesignWidth="300">
     
     <Grid Style="{StaticResource ContentRoot}">
-        <mui:ModernTab SelectedSource="/Views/DataGrid.xaml" Layout="Tab">
+        <mui:ModernTab SelectedSource="/Views/Report.xaml" Layout="Tab">
             <mui:ModernTab.Links>
-                <mui:Link DisplayName="DataGrid" Source="/Views/DataGrid.xaml" />
+                <mui:Link DisplayName="Report" Source="/Views/Report.xaml" />
+                <mui:Link DisplayName="Content" Source="/Views/Content.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
     </Grid>

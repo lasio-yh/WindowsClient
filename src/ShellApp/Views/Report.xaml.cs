@@ -8,9 +8,9 @@ namespace ShellApp.Views
     /// <summary>
     /// Interaction logic for DataGrid.xaml
     /// </summary>
-    public partial class DataGrid : UserControl
+    public partial class Report : UserControl
     {
-        public DataGrid()
+        public Report()
         {
             InitializeComponent();
         }

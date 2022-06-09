@@ -5,11 +5,11 @@ using System.Windows.Controls;
 namespace ShellApp.Views
 {
     /// <summary>
-    /// Interaction logic for LoremIpsum3.xaml
+    /// Interaction logic for LoremIpsum2.xaml
     /// </summary>
-    public partial class Editor : UserControl
+    public partial class Content : UserControl
     {
-        public Editor()
+        public Content()
         {
             InitializeComponent();
         }
