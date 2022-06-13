@@ -7,6 +7,7 @@ using Prism.Commands;
 using System.Windows;
 using System.Windows.Input;
 using ShellApp.Views;
+using ShellApp.Constants;
 
 namespace ShellApp.ViewModels
 {
@@ -23,6 +24,16 @@ namespace ShellApp.ViewModels
         {
             Customers = new ObservableCollection<Customer>();
             Customers.AddRange(service.GetAllCustomers());
+
+            ButtonCommand0 = CompositeCommands.SaveCommand;
+        }
+
+        private ICommand _buttonCommand0;
+        public ICommand ButtonCommand0
+        {
+            get => _buttonCommand0;
+            set => _buttonCommand0 = value;
+
         }
 
         private ICommand _buttonCommand1;

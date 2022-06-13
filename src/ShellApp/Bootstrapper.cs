@@ -33,10 +33,14 @@ namespace ShellApp
             App.Current.MainWindow.Show();
         }
 
+        protected override void RegisterFrameworkExceptionTypes()
+        {
+            base.RegisterFrameworkExceptionTypes();
+        }
+
         protected override void ConfigureContainer()
         {
             base.ConfigureContainer();
-            //Container.RegisterType<InterfaceName, ClassName>();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()

@@ -2,16 +2,28 @@
 using Core.Contracts;
 using Core.Services;
 using System;
+using Prism.Commands;
+using ShellApp.Constants;
+using System.Windows.Input;
 
 namespace ShellApp.ViewModels
 {
     public class DashBoardViewModel : BindableBase
     {
+        public DelegateCommand UpdateCommand { get; private set; }
+
         public DashBoardViewModel(ITimerService timerService)
         {
             timerService = new TimerService();
             timerService.Create(GetCurentDate);
             timerService.Start();
+            UpdateCommand = new DelegateCommand(Update);
+            CompositeCommands.SaveCommand.RegisterCommand(UpdateCommand);
+        }
+
+        private void Update()
+        {
+
         }
 
         private void GetCurentDate(object sender)

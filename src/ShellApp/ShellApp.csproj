@@ -104,6 +104,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Constants\CompositeCommands.cs" />
     <Compile Include="Constants\EditDialog.cs" />
     <Compile Include="Constants\ThemesPath.cs" />
     <Compile Include="Constants\ToastNotify.cs" />
@@ -265,6 +266,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ci.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
