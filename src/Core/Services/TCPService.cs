@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
 
 namespace Core.Services
@@ -26,8 +27,8 @@ namespace Core.Services
         {
             try
             {
-                _tcpClient = new TcpClient(ipAddress, port);
-
+                _tcpClient = new TcpClient();
+                _tcpClient.ConnectAsync(ipAddress, port);
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -48,7 +49,6 @@ namespace Core.Services
                 _worker = new Thread(new ThreadStart(Receive));
                 _worker.Start();
                 NotifyCallBack = callBack;
-
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -65,8 +65,6 @@ namespace Core.Services
         {
             try
             {
-                _startFalg = false;
-
                 if (_worker != null)
                 {
                     _worker.Abort();
@@ -91,13 +89,13 @@ namespace Core.Services
         /// 데이터를 전송합니다.
         /// </summary>
         /// <returns>ResultMapModel</returns>
-        public ResultMapModel Send(byte[] buffer, int length)
+        public ResultMapModel Send(string data)
         {
             try
             {
                 var stream = _tcpClient.GetStream();
-                stream.Write(buffer, 0, length);
-
+                var buffer = Encoding.UTF8.GetBytes(data);
+                stream.WriteAsync(buffer, 0, buffer.Length);
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -110,19 +108,22 @@ namespace Core.Services
         {
             try
             {
-                var outbuf = new byte[255];
-                var nbytes = 0;
-                var stream = _tcpClient.GetStream();
-                var mem = new MemoryStream();
-                while ((nbytes = stream.Read(outbuf, 0, outbuf.Length)) > 0)
+                while(_tcpClient.Connected)
                 {
-                    mem.Write(outbuf, 0, nbytes);
+                    var outbuf = new byte[255];
+                    var nbytes = 0;
+                    var data = string.Empty;
+                    var stream = _tcpClient.GetStream();
+                    var mem = new MemoryStream();
+                    while ((nbytes = stream.Read(outbuf, 0, outbuf.Length)) > 0)
+                    {
+                        mem.Write(outbuf, 0, nbytes);
+                    }
+                    stream.Close();
+                    data = Encoding.UTF8.GetString(mem.ToArray());
+                    NotifyCallBack(data);
+                    Thread.Sleep(100);
                 }
-
-                stream.Close();
-                //data
-                NotifyCallBack(new object());
-                Thread.Sleep(100);
             }
             catch (Exception ex)
             {

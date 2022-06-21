@@ -5,23 +5,29 @@ using System;
 using Prism.Commands;
 using ShellApp.Constants;
 using System.Windows.Input;
+using Prism.Events;
 
 namespace ShellApp.ViewModels
 {
     public class DashBoardViewModel : BindableBase
     {
         public DelegateCommand UpdateCommand { get; private set; }
-
-        public DashBoardViewModel(ITimerService timerService)
+        public DashBoardViewModel(IEventAggregator ea, ITimerService timerService)
         {
             timerService = new TimerService();
             timerService.Create(GetCurentDate);
             timerService.Start();
             UpdateCommand = new DelegateCommand(Update);
             CompositeCommands.SaveCommand.RegisterCommand(UpdateCommand);
+            ea.GetEvent<TickerSymbolSelectedEvent>().Subscribe(Push);
         }
 
         private void Update()
+        {
+
+        }
+
+        private void Push(string args)
         {
 
         }

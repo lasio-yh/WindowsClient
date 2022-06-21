@@ -8,6 +8,6 @@ namespace Core.Contracts
         ResultMapModel Create(string ipAddress, int port);
         ResultMapModel StartReceive(CallBackHandler callBack);
         ResultMapModel StopReceive();
-        ResultMapModel Send(byte[] buffer, int length);
+        ResultMapModel Send(string data);
     }
 }

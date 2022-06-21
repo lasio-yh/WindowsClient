@@ -14,7 +14,6 @@ namespace Core.Services
         public CallBackHandler NotifyCallBack;
         private UdpClient _udpClient;
         int _port;
-        bool _startFalg;
         Thread _worker;
 
         /// <summary>
@@ -27,7 +26,6 @@ namespace Core.Services
             {
                 var endPoint = new IPEndPoint(IPAddress.Any, _port);
                 _udpClient = new UdpClient(endPoint);
-
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -45,7 +43,6 @@ namespace Core.Services
         {
             try
             {
-                _startFalg = true;
                 _worker = new Thread(new ThreadStart(Receive));
                 _port = port;
                 _worker.Start();
@@ -67,8 +64,6 @@ namespace Core.Services
         {
             try
             {
-                _startFalg = false;
-
                 if (_worker != null)
                 {
                     _worker.Abort();
@@ -98,7 +93,6 @@ namespace Core.Services
             try
             {
                 _udpClient.Send(buffer, length);
-
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -112,7 +106,7 @@ namespace Core.Services
             try
             {
                 var remoteEndPoint = new IPEndPoint(IPAddress.Any, _port);
-                while (_startFalg)
+                while (_udpClient.Client.Connected) 
                 {
                     try
                     {

@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Input;
 using ShellApp.Views;
 using ShellApp.Constants;
+using Prism.Events;
 
 namespace ShellApp.ViewModels
 {
@@ -20,12 +21,17 @@ namespace ShellApp.ViewModels
             set { SetProperty(ref customers, value); }
         }
 
-        public ReportViewModel(ICustomerService service)
+        IEventAggregator _eventAggregator;
+
+        public ReportViewModel(ICustomerService service, IEventAggregator ea)
         {
             Customers = new ObservableCollection<Customer>();
             Customers.AddRange(service.GetAllCustomers());
 
             ButtonCommand0 = CompositeCommands.SaveCommand;
+
+            _eventAggregator = ea;
+            _eventAggregator.GetEvent<TickerSymbolSelectedEvent>().Publish("STOCK0");
         }
 
         private ICommand _buttonCommand0;

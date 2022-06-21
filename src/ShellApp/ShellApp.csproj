@@ -106,11 +106,12 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Constants\CompositeCommands.cs" />
     <Compile Include="Constants\EditDialog.cs" />
+    <Compile Include="Constants\TickerSymbolSelectedEvent.cs" />
     <Compile Include="Constants\ThemesPath.cs" />
     <Compile Include="Constants\ToastNotify.cs" />
     <Compile Include="ViewModels\DashBoardViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModel.cs" />
-    <Compile Include="ViewModels\ContenttViewModel.cs" />
+    <Compile Include="ViewModels\ContentViewModel.cs" />
     <Compile Include="Views\Report.xaml.cs">
       <DependentUpon>Report.xaml</DependentUpon>
     </Compile>
@@ -129,7 +130,7 @@
     <Compile Include="Views\SettingsAppearance.xaml.cs">
       <DependentUpon>SettingsAppearance.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Themes\BingImage.cs" />
+    <Compile Include="Styles\BingImage.cs" />
     <Compile Include="ViewModels\SettingsAppearanceViewModel.cs" />
     <Compile Include="Views\LayoutPage.xaml.cs">
       <DependentUpon>LayoutPage.xaml</DependentUpon>
@@ -140,19 +141,19 @@
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Themes\LightCustom2ImageTheme.xaml">
+    <Page Include="Styles\LightCustom2ImageTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\LightBingImageTheme.xaml">
+    <Page Include="Styles\LightBingImageTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\DarkTheme.xaml">
+    <Page Include="Styles\DarkTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\LightTheme.xaml">
+    <Page Include="Styles\LightTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -196,19 +197,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\DarkBingImageTheme.xaml">
+    <Page Include="Styles\DarkBingImageTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\LightCustom1ImageTheme.xaml">
+    <Page Include="Styles\LightCustom1ImageTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\DarkCustom1ImageTheme.xaml">
+    <Page Include="Styles\DarkCustom1ImageTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\DarkCustom2ImageTheme.xaml">
+    <Page Include="Styles\DarkCustom2ImageTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -256,13 +257,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\background1.jpg" />
+    <Resource Include="Styles\background1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\background2.jpg" />
+    <Resource Include="Styles\background2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\logo.png" />
+    <Resource Include="Styles\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ci.ico" />

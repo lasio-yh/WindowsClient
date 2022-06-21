@@ -1,7 +1,9 @@
 ﻿using Core.Contracts;
 using Core.Model;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
+using ShellApp.Constants;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,11 +14,14 @@ using System.Windows.Input;
 
 namespace ShellApp.ViewModels
 {
-    public class ContenttViewModel : BindableBase
+    public class ContentViewModel : BindableBase
     {
-        public ContenttViewModel()
-        {
+        IEventAggregator _eventAggregator;
 
+        public ContentViewModel(IEventAggregator ea)
+        {
+            _eventAggregator = ea;
+            _eventAggregator.GetEvent<TickerSymbolSelectedEvent>().Publish("STOCK0");
         }
         private string firstName = "John";
         private string lastName;

@@ -98,7 +98,6 @@ namespace Core.Services
                 _client.ErrorReceived += OnErrorReceived;
                 _client.PinChanged += OnPinChanged;
                 NotifyCallBack = callBack;
-
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -116,7 +115,6 @@ namespace Core.Services
             try
             {
                 _client.Open();
-
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -134,7 +132,6 @@ namespace Core.Services
             try
             {
                 _isRead = false;
-
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -152,7 +149,6 @@ namespace Core.Services
             try
             {
                 _isRead = true;
-
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -170,7 +166,6 @@ namespace Core.Services
             try
             {
                 _client.Close();
-
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -184,12 +179,11 @@ namespace Core.Services
         /// </summary>
         /// <param name="text">프로세스 명</param>
         /// <returns>ResultMapModel</returns>
-        public ResultMapModel WriteLine(string text)
+        public ResultMapModel WriteLine(string data)
         {
             try
             {
-                _client.WriteLine(text);
-
+                _client.WriteLine(data);
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -210,7 +204,6 @@ namespace Core.Services
             try
             {
                 _client.Write(buffer, offset, count);
-
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
