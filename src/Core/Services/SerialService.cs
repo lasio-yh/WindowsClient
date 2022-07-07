@@ -214,8 +214,6 @@ namespace Core.Services
 
         private void OnDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            //Convert Object to Byte Array
-            //Convert Byte Array to Object
             if (!_isRead)
                 return;
 
@@ -225,8 +223,6 @@ namespace Core.Services
 
         private void OnPinChanged(object sender, SerialPinChangedEventArgs e)
         {
-            //Convert Object to Byte Array
-            //Convert Byte Array to Object
             if (!_isRead)
                 return;
 
@@ -235,8 +231,6 @@ namespace Core.Services
 
         private void OnErrorReceived(object sender, SerialErrorReceivedEventArgs e)
         {
-            //Convert Object to Byte Array
-            //Convert Byte Array to Object
             if (!_isRead)
                 return;
 
@@ -245,8 +239,6 @@ namespace Core.Services
 
         private void OnDisposed(object sender, EventArgs e)
         {
-            //Convert Object to Byte Array
-            //Convert Byte Array to Object
             if (!_isRead)
                 return;
             

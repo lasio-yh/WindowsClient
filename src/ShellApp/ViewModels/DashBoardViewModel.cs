@@ -11,31 +11,26 @@ namespace ShellApp.ViewModels
 {
     public class DashBoardViewModel : BindableBase
     {
-        public DelegateCommand UpdateCommand { get; private set; }
+        public DelegateCommand OpenCommand { get; private set; }
+        public DelegateCommand SaveCommand { get; private set; }
+        IEventAggregator _eventAggregator;
         public DashBoardViewModel(IEventAggregator ea, ITimerService timerService)
         {
-            timerService = new TimerService();
-            timerService.Create(GetCurentDate);
-            timerService.Start();
-            UpdateCommand = new DelegateCommand(Update);
-            CompositeCommands.SaveCommand.RegisterCommand(UpdateCommand);
-            ea.GetEvent<TickerSymbolSelectedEvent>().Subscribe(Push);
+            OpenCommand = new DelegateCommand(UpdateOpen);
+            SaveCommand = new DelegateCommand(UpdateSave);
+            CompositeCommands.OpenCommand.RegisterCommand(OpenCommand);
+            CompositeCommands.SaveCommand.RegisterCommand(SaveCommand);
+            _eventAggregator = ea;
         }
 
-        private void Update()
+        private void UpdateOpen()
         {
-
+            _eventAggregator.GetEvent<TickerSymbolSelectedEvent>().Publish("Success Open Document");
         }
 
-        private void Push(string args)
+        private void UpdateSave()
         {
-
-        }
-
-        private void GetCurentDate(object sender)
-        {
-            NowDay = string.Format("{0} ({1})", DateTime.Now.ToString("yyyy.MM.dd"), DateTime.Now.DayOfWeek);
-            NowTime = string.Format(" {0}", DateTime.Now.ToString("hh:mm:ss"));
+            _eventAggregator.GetEvent<TickerSymbolSelectedEvent>().Publish("Success Save Document");
         }
 
         private string _title = $"DashBoard";
@@ -43,20 +38,6 @@ namespace ShellApp.ViewModels
         {
             get { return _title; }
             set { SetProperty(ref _title, value); }
-        }
-
-        private string _nowDay;
-        public string NowDay
-        {
-            get { return _nowDay; }
-            set { SetProperty(ref _nowDay, value); }
-        }
-
-        private string _nowTime;
-        public string NowTime
-        {
-            get { return _nowTime; }
-            set { SetProperty(ref _nowTime, value); }
         }
     }
 }

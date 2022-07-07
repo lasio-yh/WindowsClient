@@ -11,6 +11,8 @@ namespace ShellApp
             try
             {
                 base.OnStartup(e);
+                LoggerManager.Create($"ShellApp.log");
+                LoggerManager.Info("OnStartup");
                 Bootstrapper bootstrapper = new Bootstrapper();
                 bootstrapper.Run();
                 ToastNotify.Create();
@@ -32,6 +34,7 @@ namespace ShellApp
 
         protected override void OnExit(ExitEventArgs e)
         {
+            LoggerManager.Info("OnExit");
             ToastNotify.ShowInfo("Exit Application.");
             ToastNotify.Dispose();
             base.OnExit(e);

@@ -23,7 +23,6 @@ namespace Core.Services
                 var client = new HttpClient();
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(token);
                 var stream = await client.GetStringAsync(new Uri(uri));
-                
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = stream };
             }
             catch (Exception ex)
@@ -47,7 +46,6 @@ namespace Core.Services
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(token);
                 var httpContent = new StringContent(body, Encoding.UTF8, "application/json");
                 var stream = await client.PostAsync(new Uri(uri), httpContent);
-                
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = stream.Content.ToString() };
             }
             catch (Exception ex)

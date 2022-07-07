@@ -14,7 +14,6 @@ namespace Core.Services
         public delegate void CallBackHandler(object args);
         public CallBackHandler NotifyCallBack;
         private TcpClient _tcpClient;
-        bool _startFalg;
         Thread _worker;
 
         /// <summary>
@@ -45,7 +44,6 @@ namespace Core.Services
         {
             try
             {
-                _startFalg = true;
                 _worker = new Thread(new ThreadStart(Receive));
                 _worker.Start();
                 NotifyCallBack = callBack;
@@ -70,13 +68,11 @@ namespace Core.Services
                     _worker.Abort();
                     _worker = null;
                 }
-
                 if (_tcpClient != null)
                 {
                     _tcpClient.Close();
                     _tcpClient = null;
                 }
-
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)

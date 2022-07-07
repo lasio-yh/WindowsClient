@@ -11,67 +11,63 @@ namespace ShellApp
         public Shell()
         {
             InitializeComponent();
-            AppearanceManager.Current.ThemeSource = new Uri(ThemesPath.DarkCustom2ImageTheme, UriKind.Relative);
+            AppearanceManager.Current.ThemeSource = new Uri(ThemesPath.DarkBingImage, UriKind.Relative);
         }
 
         public void AddLinkGroups(LinkGroupCollection linkGroupCollection)
         {
             CreateMenuLinkGroup();
-
             foreach (LinkGroup linkGroup in linkGroupCollection)
             {
-                this.MenuLinkGroups.Add(linkGroup);
+                MenuLinkGroups.Add(linkGroup);
             }
         }
 
         private void CreateMenuLinkGroup()
         {
-            this.MenuLinkGroups.Clear();
-
+            MenuLinkGroups.Clear();
             LinkGroup linkGroup = new LinkGroup
             {
                 DisplayName = "Settings",
                 GroupKey = "settings"
             };
-
             linkGroup.Links.Add(new Link
             {
                 DisplayName = "Settings options",
                 Source = GetUri(typeof(SettingsView))
             });
 
-            this.MenuLinkGroups.Add(linkGroup);
-
+            MenuLinkGroups.Add(linkGroup);
             linkGroup = new LinkGroup
             {
-                DisplayName = "Common"
+                DisplayName = Properties.Resources.GRP_NAME1
             };
 
             linkGroup.Links.Add(new Link
             {
-                DisplayName = "Layout Page",
-                Source = GetUri(typeof(LayoutPage))
+                DisplayName = "MainView",
+                Source = GetUri(typeof(MainView))
             });
 
-            linkGroup.Links.Add(new Link
-            {
-                DisplayName = "Split Page",
-                Source = GetUri(typeof(SplitPage))
-            });
+            //linkGroup.Links.Add(new Link
+            //{
+            //    DisplayName = "MasterDetail",
+            //    Source = GetUri(typeof(MasterDetailPage))
+            //});
 
-            linkGroup.Links.Add(new Link
-            {
-                DisplayName = "List Page",
-                Source = GetUri(typeof(ListPage))
-            });
+            //linkGroup.Links.Add(new Link
+            //{
+            //    DisplayName = "Editor",
+            //    Source = GetUri(typeof(EditorPage))
+            //});
 
-            linkGroup.Links.Add(new Link
-            {
-                DisplayName = "Tab Page",
-                Source = GetUri(typeof(TabPage))
-            });
+            //linkGroup.Links.Add(new Link
+            //{
+            //    DisplayName = "Chart",
+            //    Source = GetUri(typeof(ChartPage))
+            //});
 
-            this.MenuLinkGroups.Add(linkGroup);
+            MenuLinkGroups.Add(linkGroup);
         }
 
         private Uri GetUri(Type viewType)

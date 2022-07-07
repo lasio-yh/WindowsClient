@@ -48,10 +48,6 @@ namespace ShellApp.ViewModels
 
         public SettingsAppearanceViewModel()
         {
-            // add the default themes
-            //this.themes.Add(new Link { DisplayName = "light", Source = AppearanceManager.LightThemeSource });
-            //this.themes.Add(new Link { DisplayName = "dark", Source = AppearanceManager.DarkThemeSource });
-
             // add additional themes
             this.themes.Add(new Link { DisplayName = "light", Source = new Uri(ThemesPath.Light, UriKind.Relative) });
             this.themes.Add(new Link { DisplayName = "dark", Source = new Uri(ThemesPath.Dark, UriKind.Relative) });

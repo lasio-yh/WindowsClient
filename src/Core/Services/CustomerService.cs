@@ -18,8 +18,7 @@ namespace Core.Services
             customers.Add(new Customer { FirstName = "Dominic", LastName = "Gash", Email = "dominic@adventure-works.com", IsMember = true, Status = OrderStatus.Received });
             customers.Add(new Customer { FirstName = "Kathleen", LastName = "Garza", Email = "kathleen@adventure-works.com", IsMember = false, Status = OrderStatus.None });
             customers.Add(new Customer { FirstName = "Katherine", LastName = "Harding", Email = "katherine@adventure-works.com", IsMember = true, Status = OrderStatus.Shipped });
-            customers.Add(new Customer { FirstName = "Johnny", LastName = "Caprio", Email = "johnny@adventure-works.com", IsMember = false, Status = OrderStatus.Processing });
-         
+            customers.Add(new Customer { FirstName = "Johnny", LastName = "Caprio", Email = "johnny@adventure-works.com", IsMember = false, Status = OrderStatus.Processing });         
             return customers;
         }
     }

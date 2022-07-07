@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="MnStudio.Views.Setting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Style="{StaticResource ContentRoot}">
+        <StackPanel Width="1920" HorizontalAlignment="Left">
+            <ProgressBar Minimum="0" Maximum="1" Height="5" IsIndeterminate="True" Margin="0,0,0,5" />
+        </StackPanel>
+        <mui:ModernTab SelectedSource="/Views/Common.xaml" Layout="List">
+            <mui:ModernTab.Links>
+                <mui:Link DisplayName="일반" Source="/Views/Common.xaml" />
+                <mui:Link DisplayName="화면" Source="/Views/Appearance.xaml" />
+            </mui:ModernTab.Links>
+        </mui:ModernTab>
+    </Grid>
+</UserControl>

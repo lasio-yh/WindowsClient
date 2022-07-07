@@ -85,7 +85,6 @@ namespace Core.Services
                 _request.Method = HttpMethod.Post;
                 _request.Content = _content;
                 _request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse(_header);
-
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)

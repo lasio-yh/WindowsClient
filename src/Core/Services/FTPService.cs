@@ -49,7 +49,6 @@ namespace Core.Services
                 _client = new FtpClient(_host);
                 _client.Credentials = new NetworkCredential(_user, _password);
                 _client.Connect();
-                
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -67,7 +66,6 @@ namespace Core.Services
             try
             {
                 _client.Disconnect();
-                
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)
@@ -86,8 +84,7 @@ namespace Core.Services
         {
             try
             {
-                var checkedSum = _client.DownloadFile(localPaht, remotePath, FluentFTP.FtpLocalExists.Overwrite, FluentFTP.FtpVerify.OnlyChecksum);
-                
+                var checkedSum = _client.DownloadFile(localPaht, remotePath, FtpLocalExists.Overwrite, FtpVerify.OnlyChecksum);
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)

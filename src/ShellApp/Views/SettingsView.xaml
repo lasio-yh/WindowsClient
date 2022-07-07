@@ -6,15 +6,11 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    
     <Grid Style="{StaticResource ContentRoot}">
         <mui:ModernTab SelectedSource="/Views/SettingsAppearance.xaml" Layout="List">
             <mui:ModernTab.Links>
                 <mui:Link DisplayName="Appearance" Source="/Views/SettingsAppearance.xaml" />
-                <mui:Link DisplayName="Option 2" Source="/Views/LoremIpsum1.xaml" />
-                <mui:Link DisplayName="Option 3" Source="/Views/LoremIpsum2.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
     </Grid>
-    
 </UserControl>

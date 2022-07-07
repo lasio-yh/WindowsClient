@@ -42,7 +42,6 @@ namespace Core.Services
 
                 var fileContent = JsonConvert.SerializeObject(content);
                 File.WriteAllText(Path.Combine(folderPath, fileName), fileContent, Encoding.UTF8);
-               
                 return new ResultMapModel { ResultId = "0x00", ResultMessage = "Succes" };
             }
             catch (Exception ex)

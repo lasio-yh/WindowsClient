@@ -59,5 +59,32 @@ namespace ShellApp.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Sample UI Component과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string GRP_NAME1 {
+            get {
+                return ResourceManager.GetString("GRP_NAME1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   SharpDX과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string GRP_NAME2 {
+            get {
+                return ResourceManager.GetString("GRP_NAME2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Accorde과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string GRP_NAME3 {
+            get {
+                return ResourceManager.GetString("GRP_NAME3", resourceCulture);
+            }
+        }
     }
 }

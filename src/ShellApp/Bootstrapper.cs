@@ -4,6 +4,7 @@ using System.Reflection;
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Prism.Unity;
+using Prism.Logging;
 using FirstFloor.ModernUI.Presentation;
 using Core.Contracts;
 
@@ -18,9 +19,7 @@ namespace ShellApp
         {
             Shell shell = Container.Resolve<Shell>();
             if (linkGroupCollection != null)
-            {
                 shell.AddLinkGroups(linkGroupCollection);
-            }
 
             return shell;
         }
@@ -28,7 +27,6 @@ namespace ShellApp
         protected override void InitializeShell()
         {
             base.InitializeShell();
-
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();
         }
@@ -69,11 +67,9 @@ namespace ShellApp
             {
                 var mi = (ModuleInfo)module;
                 var asm = Assembly.LoadFrom(mi.Ref);
-
                 foreach (Type t in asm.GetTypes())
                 {
                     var myInterfaces = t.FindInterfaces(typeFilter, typeof(ILinkGroupService).ToString());
-
                     if (myInterfaces.Length > 0)
                     {
                         // We found the type that implements the ILinkGroupService interface

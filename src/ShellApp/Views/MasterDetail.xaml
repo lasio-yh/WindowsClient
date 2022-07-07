@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="ShellApp.Views.MasterDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ShellApp.Views"
+             xmlns:core="clr-namespace:System;assembly=mscorlib"
+             xmlns:model="clr-namespace:Core.Model;assembly=Core"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Style="{StaticResource ContentRoot}">
+        <Grid.Resources>
+            <ObjectDataProvider x:Key="myEnum" MethodName="GetValues" ObjectType="{x:Type core:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type Type="model:OrderStatus"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Margin="{StaticResource SplitLeft}">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+                    <mui:ModernButton HorizontalAlignment="Left" 
+                                  ToolTip="서버 연결 시작하기"
+                                  Margin="5,10,0,0"
+                                  Command="{Binding ConnectCommand}" 
+                                  EllipseStrokeThickness="2" 
+                                  EllipseDiameter="30" 
+                                  IconWidth="15" 
+                                  IconHeight="15" 
+                                  IconData="M 23 5 C 20.800781 5 19 6.800781 19 9 C 19 9.777344 19.234375 10.5 19.625 11.117188 L 16.519531 15 L 11.855469 15 C 11.40625 13.285156 9.851563 12 8 12 C 5.800781 12 4 13.800781 4 16 C 4 18.199219 5.800781 20 8 20 C 9.851563 20 11.40625 18.714844 11.855469 17 L 16.519531 17 L 19.625 20.882813 C 19.234375 21.5 19 22.222656 19 23 C 19 25.199219 20.800781 27 23 27 C 25.199219 27 27 25.199219 27 23 C 27 20.800781 25.199219 19 23 19 C 22.304688 19 21.660156 19.195313 21.089844 19.511719 L 18.28125 16 L 21.089844 12.488281 C 21.660156 12.804688 22.304688 13 23 13 C 25.199219 13 27 11.199219 27 9 C 27 6.800781 25.199219 5 23 5 Z M 23 7 C 24.117188 7 25 7.882813 25 9 C 25 10.117188 24.117188 11 23 11 C 21.882813 11 21 10.117188 21 9 C 21 7.882813 21.882813 7 23 7 Z M 8 14 C 9.117188 14 10 14.882813 10 16 C 10 17.117188 9.117188 18 8 18 C 6.882813 18 6 17.117188 6 16 C 6 14.882813 6.882813 14 8 14 Z M 23 21 C 24.117188 21 25 21.882813 25 23 C 25 24.117188 24.117188 25 23 25 C 21.882813 25 21 24.117188 21 23 C 21 21.882813 21.882813 21 23 21 Z" />
+                    <mui:ModernButton HorizontalAlignment="Left" 
+                                  ToolTip="서버 연결 시작하기"
+                                  Margin="5,10,0,0"
+                                  Command="{Binding ConnectCommand}" 
+                                  EllipseStrokeThickness="2" 
+                                  EllipseDiameter="30" 
+                                  IconWidth="15" 
+                                  IconHeight="15" 
+                                  IconData="M 23 5 C 20.800781 5 19 6.800781 19 9 C 19 9.777344 19.234375 10.5 19.625 11.117188 L 16.519531 15 L 11.855469 15 C 11.40625 13.285156 9.851563 12 8 12 C 5.800781 12 4 13.800781 4 16 C 4 18.199219 5.800781 20 8 20 C 9.851563 20 11.40625 18.714844 11.855469 17 L 16.519531 17 L 19.625 20.882813 C 19.234375 21.5 19 22.222656 19 23 C 19 25.199219 20.800781 27 23 27 C 25.199219 27 27 25.199219 27 23 C 27 20.800781 25.199219 19 23 19 C 22.304688 19 21.660156 19.195313 21.089844 19.511719 L 18.28125 16 L 21.089844 12.488281 C 21.660156 12.804688 22.304688 13 23 13 C 25.199219 13 27 11.199219 27 9 C 27 6.800781 25.199219 5 23 5 Z M 23 7 C 24.117188 7 25 7.882813 25 9 C 25 10.117188 24.117188 11 23 11 C 21.882813 11 21 10.117188 21 9 C 21 7.882813 21.882813 7 23 7 Z M 8 14 C 9.117188 14 10 14.882813 10 16 C 10 17.117188 9.117188 18 8 18 C 6.882813 18 6 17.117188 6 16 C 6 14.882813 6.882813 14 8 14 Z M 23 21 C 24.117188 21 25 21.882813 25 23 C 25 24.117188 24.117188 25 23 25 C 21.882813 25 21 24.117188 21 23 C 21 21.882813 21.882813 21 23 21 Z" />
+                    <mui:ModernButton HorizontalAlignment="Left" 
+                                  ToolTip="서버 연결 시작하기"
+                                  Margin="5,10,0,0"
+                                  Command="{Binding ConnectCommand}" 
+                                  EllipseStrokeThickness="2" 
+                                  EllipseDiameter="30" 
+                                  IconWidth="15" 
+                                  IconHeight="15" 
+                                  IconData="M 23 5 C 20.800781 5 19 6.800781 19 9 C 19 9.777344 19.234375 10.5 19.625 11.117188 L 16.519531 15 L 11.855469 15 C 11.40625 13.285156 9.851563 12 8 12 C 5.800781 12 4 13.800781 4 16 C 4 18.199219 5.800781 20 8 20 C 9.851563 20 11.40625 18.714844 11.855469 17 L 16.519531 17 L 19.625 20.882813 C 19.234375 21.5 19 22.222656 19 23 C 19 25.199219 20.800781 27 23 27 C 25.199219 27 27 25.199219 27 23 C 27 20.800781 25.199219 19 23 19 C 22.304688 19 21.660156 19.195313 21.089844 19.511719 L 18.28125 16 L 21.089844 12.488281 C 21.660156 12.804688 22.304688 13 23 13 C 25.199219 13 27 11.199219 27 9 C 27 6.800781 25.199219 5 23 5 Z M 23 7 C 24.117188 7 25 7.882813 25 9 C 25 10.117188 24.117188 11 23 11 C 21.882813 11 21 10.117188 21 9 C 21 7.882813 21.882813 7 23 7 Z M 8 14 C 9.117188 14 10 14.882813 10 16 C 10 17.117188 9.117188 18 8 18 C 6.882813 18 6 17.117188 6 16 C 6 14.882813 6.882813 14 8 14 Z M 23 21 C 24.117188 21 25 21.882813 25 23 C 25 24.117188 24.117188 25 23 25 C 21.882813 25 21 24.117188 21 23 C 21 21.882813 21.882813 21 23 21 Z" />
+                </StackPanel>
+                <DataGrid ItemsSource="{Binding Customers}" AutoGenerateColumns="False" Background="Transparent" SelectedItem="{Binding SelectedMessage, Mode=TwoWay}">
+                    <DataGrid.Columns>
+                        <mui:DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"/>
+                        <mui:DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
+                        <mui:DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                        <mui:DataGridCheckBoxColumn Header="Is Member" Binding="{Binding IsMember}" />
+                        <mui:DataGridComboBoxColumn Header="Order Status" SelectedItemBinding="{Binding Status}" ItemsSource="{Binding Source={StaticResource myEnum}}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </ScrollViewer>
+        <GridSplitter Grid.Column="1" />
+        <ScrollViewer Grid.Column="2 " Margin="{StaticResource SplitRight}">
+            <DataGrid ItemsSource="{Binding Customers}" AutoGenerateColumns="False" Background="Transparent" SelectedItem="{Binding SelectedMessage, Mode=TwoWay}">
+                <DataGrid.Columns>
+                    <mui:DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"/>
+                    <mui:DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
+                    <mui:DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                    <mui:DataGridCheckBoxColumn Header="Is Member" Binding="{Binding IsMember}" />
+                    <mui:DataGridComboBoxColumn Header="Order Status" SelectedItemBinding="{Binding Status}" ItemsSource="{Binding Source={StaticResource myEnum}}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

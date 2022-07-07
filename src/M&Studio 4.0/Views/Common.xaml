@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="MnStudio.Views.Common"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <ScrollViewer>
+            <StackPanel x:Name="Panel" MinWidth="150">
+                <Grid HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition MinWidth="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="아이피" VerticalAlignment="Center" Margin="0,0,16,10" Style="{StaticResource Heading2}" />
+                    <TextBox Grid.Column="1" Text="{Binding IpAddress}"  FlowDirection="LeftToRight" Height="25" Width="200" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="1" Text="맥 주소" VerticalAlignment="Center" Margin="0,0,16,10" Style="{StaticResource Heading2}" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding MacAddress}"  FlowDirection="LeftToRight" Height="25" Width="200" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="2" Text="프로그램 키" VerticalAlignment="Center" Margin="0,0,16,10" Style="{StaticResource Heading2}" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ProgramKey}"  FlowDirection="LeftToRight" Height="25" Width="200" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="3" Text="채널" VerticalAlignment="Center" Margin="0,0,16,10" Style="{StaticResource Heading2}" />
+                    <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Channel}" SelectedItem="{Binding SelectedChannel, Mode=TwoWay}" 
+VerticalAlignment="Center" Margin="0,0,16,10" />
+                    <TextBlock Grid.Row="4" Text="조회 기간" VerticalAlignment="Center" Margin="0,0,16,10" Style="{StaticResource Heading2}" />
+                    <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding FindDate}" SelectedItem="{Binding SelectedFindDate, Mode=TwoWay}" 
+VerticalAlignment="Center" Margin="0,0,16,10" />
+                    <TextBlock Grid.Row="5" Text="조회 수" VerticalAlignment="Center" Margin="0,0,16,10" Style="{StaticResource Heading2}" />
+                    <ComboBox Grid.Row="5" Grid.Column="1" ItemsSource="{Binding FindSize}" SelectedItem="{Binding SelectedFindSize, Mode=TwoWay}" 
+VerticalAlignment="Center" Margin="0,0,16,10" />
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

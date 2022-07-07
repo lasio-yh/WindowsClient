@@ -1,0 +1,92 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="using:SampleApplication.Styles">
+    <!-- Common -->
+    <system:String x:Key="localizedMessage">en-US Message</system:String>
+    <system:String x:Key="Caption App">MnStudio Controller</system:String>
+
+    <!-- Login -->
+    <system:String x:Key="ButtonLogin">로그인</system:String>
+    <system:String x:Key="CheckBoxLogin">아이디 저장</system:String>
+
+    <!-- MainTitle -->
+    <system:String x:Key="MaintTitle1">문서 관리</system:String>
+    <system:String x:Key="MaintTitle2">메시지 관리</system:String>
+    <system:String x:Key="MaintTitle3">투표 관리</system:String>
+
+    <!-- ContenxtMenu -->
+    <system:String x:Key="ButtonConnect">미들웨어 연결</system:String>
+    <system:String x:Key="ButtonDisConnect">미들웨어 종료</system:String>
+    <system:String x:Key="ButtonOpenFile">자막 열기</system:String>
+    <system:String x:Key="ButtonInit">엔진 초기화</system:String>
+    <system:String x:Key="ButtonDispose">해제</system:String>
+    <system:String x:Key="ButtonPlay">송출</system:String>
+    <system:String x:Key="ButtonStop">송출 중지</system:String>
+    
+    <!-- FileMenu -->
+    <system:String x:Key="ButtonUndo">이전 슬라이드</system:String>
+    <system:String x:Key="ButtonRedo">다음 슬라이드</system:String>
+
+    <!-- MessageTitle -->
+    <system:String x:Key="MessageTitle1">메시지 수신함</system:String>
+    <system:String x:Key="MessageTitle2">보관 메시지</system:String>
+    <system:String x:Key="MessageTitle3">문자</system:String>
+    <system:String x:Key="MessageTitle4">이미지</system:String>
+    <system:String x:Key="MessageTitle5">필터링</system:String>
+    <system:String x:Key="MessageTitle6">메시지 보관함</system:String>
+    <system:String x:Key="MessageTitle7">송출 대기함</system:String>
+    <system:String x:Key="MessageTitle8">송출 완료함</system:String>
+
+    <!-- MessageMenu -->
+    <system:String x:Key="ButtonFindMessage">찾기</system:String>
+    <system:String x:Key="ButtonStartMessage">메시지 수신 시작하기</system:String>
+    <system:String x:Key="ButtonStopMessage">메시지 수신 종료하기</system:String>
+    <system:String x:Key="ButtonAddMessage">메시지 추가하기</system:String>
+    <system:String x:Key="ButtonEditMessage">메시지 편집하기</system:String>
+    <system:String x:Key="ButtonRemoveMessage">메시지 삭제하기</system:String>
+    <system:String x:Key="ButtonExportMessage">메시지 내보내기</system:String>
+    <system:String x:Key="ButtonImportMessage">메시지 내려받기</system:String>
+
+    <!-- VoteTitle -->
+    <system:String x:Key="VoteTitle1">수신 메시지</system:String>
+    <system:String x:Key="VoteTitle2">투표 관리</system:String>
+    <system:String x:Key="VoteTitle3">투표 순위</system:String>
+    <system:String x:Key="VoteTitle4">투표 결과</system:String>
+    
+    <!-- VoteMenu -->
+    <system:String x:Key="ButtonAddCandidate">후보 추가하기</system:String>
+    <system:String x:Key="ButtonEditCandidate">후보 편집하기</system:String>
+    <system:String x:Key="ButtonRemoveCandidate">후보 삭제하기</system:String>
+    <system:String x:Key="ButtonFindVote">투표 조회하기</system:String>
+    <system:String x:Key="ButtonAddVote">투표 등록하기</system:String>
+    <system:String x:Key="ButtonRemoveVote">투표 삭제하기</system:String>
+    <system:String x:Key="ButtonEditVote">투표 수정하기</system:String>
+    <system:String x:Key="ButtonStartVote">투표 시작하기</system:String>
+    <system:String x:Key="ButtonEndVote">투표 종료하기</system:String>
+    <system:String x:Key="ButtonActiveVote">송출 시작</system:String>
+    <system:String x:Key="ButtonStanyByVote">송출 대기</system:String>
+
+    <!-- DisplayTitle -->
+    <system:String x:Key="DisplayTitle1">송출 유형</system:String>
+
+    <!-- DisplayMenu -->
+    <system:String x:Key="ButtonRenderCut">컷</system:String>
+    <system:String x:Key="ButtonRenderTypeWrite">타이핑</system:String>
+    <system:String x:Key="ButtonRenderCraw">스크롤</system:String>
+    <system:String x:Key="ButtonRenderTicker">티커</system:String>
+    <system:String x:Key="ButtonRenderTexture">텍스쳐</system:String>
+    <system:String x:Key="ButtonRenderRolling">롤링</system:String>
+
+    <!-- Text Water Mark Name -->
+    <system:String x:Key="TextBoxID">아이디를 입력하세요 ...</system:String>
+    <system:String x:Key="TextBoxPassword">비밀번호를 입력하세요 ...</system:String>
+    <system:String x:Key="TextBoxKeyword">검색어를 입력하세요 ...</system:String>
+
+    <!-- Status Title -->
+    <system:String x:Key="StatusTitle1">자막 열기 상태</system:String>
+    <system:String x:Key="StatusTitle2">서버 연결 상태</system:String>
+    <system:String x:Key="StatusTitle3">미들웨어 연결 상태</system:String>
+    <system:String x:Key="StatusTitle4">송출 상태</system:String>
+</ResourceDictionary>

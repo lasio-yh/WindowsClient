@@ -5,7 +5,7 @@
     <!-- default font settings -->
     <sys:Double x:Key="DefaultFontSize">14</sys:Double>
     <sys:Double x:Key="FixedFontSize">16.333</sys:Double>
-    <sys:Double x:Key="ViewMaxWidth">1920</sys:Double>
+    <sys:Double x:Key="ViewMaxWidth">2028</sys:Double>
     <sys:String x:Key="Button1">Button1</sys:String>
     <sys:String x:Key="Button2">Button2</sys:String>
     <sys:String x:Key="Button3">Button3</sys:String>

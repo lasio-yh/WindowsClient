@@ -7,7 +7,6 @@ using Prism.Commands;
 using System.Windows;
 using System.Windows.Input;
 using ShellApp.Views;
-using ShellApp.Constants;
 using Prism.Events;
 
 namespace ShellApp.ViewModels

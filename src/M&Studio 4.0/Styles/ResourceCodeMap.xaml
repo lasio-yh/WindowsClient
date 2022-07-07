@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SampleApplication.Styles"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Command Param Button 1">0x01</system:String>
+    <system:String x:Key="Command Param Button 2">0x02</system:String>
+    <system:String x:Key="Command Param Button 3">0x03</system:String>
+    <system:String x:Key="Command Param Button 4">0x04</system:String>
+
+    <system:String x:Key="Tag View Type1">0x01</system:String>
+    <system:String x:Key="Tag View Type2">0x02</system:String>
+    <system:String x:Key="Tag View Type3">0x03</system:String>
+    <system:String x:Key="Tag View Type4">0x04</system:String>
+    <system:String x:Key="Tag View Type5">0x05</system:String>
+    <system:String x:Key="Tag View Type6">0x06</system:String>
+    <system:String x:Key="Tag View Type7">0x07</system:String>
+</ResourceDictionary>
