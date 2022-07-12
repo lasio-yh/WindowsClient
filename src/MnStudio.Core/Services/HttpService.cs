@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Text;
+using System.Net.Http;
 
 namespace MnStudio.Core.Services
 {
@@ -16,18 +18,16 @@ namespace MnStudio.Core.Services
         {
             try
             {
-                //using (var client = new HttpClient())
-                //{
-                //    client.BaseAddress = new Uri(uri);
-                //    var data = new StringContent(body, Encoding.UTF8, "application/json");
-                //    var response = client.PostAsync(uri,data);
-                //    response.ContinueWith(item =>
-                //    {
-                //        return item.Result.Content;
-                //    });
-                //    return null;
-                //}
-                return null;
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(uri);
+                    var data = new StringContent(body, Encoding.Default, "application/json");
+                    var response = client.PostAsync(uri, data);
+                    if (response.Result.IsSuccessStatusCode)
+                        return response.Result.Content.ReadAsStringAsync();
+
+                    return null;
+                }
             }
             catch (Exception ex)
             {

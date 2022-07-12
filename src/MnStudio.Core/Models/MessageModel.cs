@@ -12,8 +12,8 @@ namespace MnStudio.Core.Models
         /// implement of property
         /// </summary>
         /// <returns>value in property</returns>
-        private string _id = string.Empty;
-        public string ID
+        private int _id = -1;
+        public int ID
         {
             get
             {
@@ -21,7 +21,7 @@ namespace MnStudio.Core.Models
             }
             set
             {
-                this._id = string.IsNullOrEmpty(value) ? string.Empty : value;
+                this._id = value;
             }
         }
 
@@ -55,7 +55,8 @@ namespace MnStudio.Core.Models
             }
             set
             {
-                if(value != null) this._value =  value;
+                if(value != null) 
+                    this._value =  value;
             }
         }
 
@@ -80,8 +81,8 @@ namespace MnStudio.Core.Models
         /// implement of property
         /// </summary>
         /// <returns>value in property</returns>
-        private string _size = string.Empty;
-        public string Size
+        private int _size = -1;
+        public int Size
         {
             get
             {
@@ -89,7 +90,7 @@ namespace MnStudio.Core.Models
             }
             set
             {
-                this._size = string.IsNullOrEmpty(value) ? string.Empty : value;
+                this._size = value;
             }
         }
 
@@ -131,8 +132,8 @@ namespace MnStudio.Core.Models
         /// implement of property
         /// </summary>
         /// <returns>value in property</returns>
-        private string _time = string.Empty;
-        public string Time
+        private DateTime _time = DateTime.Now;
+        public DateTime Time
         {
             get
             {
@@ -140,7 +141,7 @@ namespace MnStudio.Core.Models
             }
             set
             {
-                this._time = string.IsNullOrEmpty(value) ? string.Empty : value;
+                this._time = value;
             }
         }
 
@@ -148,8 +149,8 @@ namespace MnStudio.Core.Models
         /// implement of property
         /// </summary>
         /// <returns>value in property</returns>
-        private string _seq = string.Empty;
-        public string Seq
+        private int _seq = -1;
+        public int Seq
         {
             get
             {
@@ -157,7 +158,7 @@ namespace MnStudio.Core.Models
             }
             set
             {
-                this._seq = string.IsNullOrEmpty(value) ? string.Empty : value;
+                this._seq = value;
             }
         }
     }

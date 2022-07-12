@@ -9,8 +9,7 @@ namespace MnStudio.Core.Contracts
     public interface ISocketService
     {
         void Open(string ip, int port, int size);
-        void Open(string ip, int port, byte size);
         void Close();
-        void Send(byte[] data);
+        void Send(string data);
     }
 }

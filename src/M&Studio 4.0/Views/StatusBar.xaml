@@ -9,18 +9,6 @@
     <Grid Style="{StaticResource ContentRoot}">
         <ScrollViewer>
             <StackPanel Margin="0,0,0,0" HorizontalAlignment="Left" Orientation="Horizontal">
-                <CheckBox HorizontalAlignment="Left" 
-                                  Content="{StaticResource StatusTitle1}"
-                                  IsChecked="{Binding IsOpenFile}"
-                                  Margin="10,10,10,10" />
-                <CheckBox HorizontalAlignment="Left" 
-                                  Content="{StaticResource StatusTitle2}"
-                                  IsChecked="{Binding IsConnectServer}"
-                                  Margin="10,10,10,10" />
-                <CheckBox HorizontalAlignment="Left" 
-                                  Content="{StaticResource StatusTitle4}"
-                                  IsChecked="{Binding IsDrawRender}"
-                                  Margin="10,10,10,10" />
                 <TextBlock Text="{Binding StatusMessage, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Heading2}" Margin="10,10,10,10"/>
             </StackPanel>
         </ScrollViewer>

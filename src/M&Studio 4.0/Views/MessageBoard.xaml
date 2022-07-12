@@ -8,17 +8,19 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Style="{StaticResource ContentRoot}">
         <StackPanel FlowDirection="LeftToRight" Orientation="Vertical">
-            <DataGrid ItemsSource="{Binding Model}" AutoGenerateColumns="False" Background="Transparent" SelectedItem="{Binding SelectedMessage, Mode=TwoWay}">
+            <DataGrid ItemsSource="{Binding BoardModel}" AutoGenerateColumns="False" Background="Transparent" SelectedItem="{Binding SelectedMessageBoard, Mode=TwoWay}">
                 <DataGrid.Columns>
-                    <mui:DataGridTextColumn Header="ID"  Binding="{Binding ID}"/>
-                    <mui:DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                    <mui:DataGridTextColumn Header="Seq" Binding="{Binding Seq}"/>
-                    <mui:DataGridTextColumn Header="Time" Binding="{Binding Time}"/>
-                    <mui:DataGridTextColumn Header="Value" Binding="{Binding Value}"/>
-                    <mui:DataGridTextColumn Header="Desc" Binding="{Binding Desc}"/>
-                    <mui:DataGridCheckBoxColumn Header="IsChecked" Binding="{Binding IsChecked}" />
-                    <mui:DataGridTextColumn Header="Size" Binding="{Binding Size}"/>
+                    <mui:DataGridTextColumn Header="키"  Binding="{Binding ID, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="이름" Binding="{Binding Name, Mode=OneWay}" />
+                    <mui:DataGridTextColumn Header="순번" Binding="{Binding Seq, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="시간" Binding="{Binding Time, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="출처" Binding="{Binding Value, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="내용" Binding="{Binding Desc, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="크기" Binding="{Binding Size, Mode=OneWay}"/>
                 </DataGrid.Columns>
+                <DataGrid.InputBindings>
+                    <MouseBinding Gesture="LeftDoubleClick" Command="{Binding CommandDoubleClickBoard}"  />
+                </DataGrid.InputBindings>
             </DataGrid>
         </StackPanel>
     </Grid>

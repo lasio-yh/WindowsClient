@@ -36,9 +36,9 @@
                         <RowDefinition />
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <TextBlock Text="테마:" VerticalAlignment="Center" Margin="0,0,16,4" />
+                    <TextBlock Text="테마" VerticalAlignment="Center" Margin="0,0,16,4" />
                     <ComboBox Grid.Column="1" ItemsSource="{Binding Themes}" SelectedItem="{Binding SelectedTheme, Mode=TwoWay}" DisplayMemberPath="DisplayName" VerticalAlignment="Center" Margin="0,0,0,4" />
-                    <TextBlock Grid.Row="1" Text="글꼴 크기:" VerticalAlignment="Center" Margin="0,0,16,0" />
+                    <TextBlock Grid.Row="1" Text="글꼴 크기" VerticalAlignment="Center" Margin="0,0,16,0" />
                     <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding FontSizes}" SelectedItem="{Binding SelectedFontSize, Mode=TwoWay}" VerticalAlignment="Center" />
                 </Grid>
             </StackPanel>

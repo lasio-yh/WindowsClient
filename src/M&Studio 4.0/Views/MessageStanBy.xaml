@@ -3,55 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+
     <Grid>
-        <!--<StackPanel FlowDirection="LeftToRight" Orientation="Horizontal">
-            <mui:ModernButton HorizontalAlignment="Left" 
-                                      Content="{StaticResource ButtonAddMessage}"
+        <StackPanel FlowDirection="LeftToRight" Margin="0,0,0,0" Orientation="Vertical">
+            <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal">
+                <mui:ModernButton HorizontalAlignment="Left" 
+                                  Content="{StaticResource ButtonInitializeMessage}"
+                                  Margin="10,10,10,10" 
+                                  Command="{Binding CommandInitialize}"
+                                  EllipseStrokeThickness="2" 
+                                  EllipseDiameter="30" 
+                                  IconWidth="15" 
+                                  IconHeight="15" 
+                                  IconData="M 3 3 C 1.34375 3 0 4.34375 0 6 L 0 20 C 0 21.035156 0.542969 21.933594 1.34375 22.46875 C 1.46875 22.550781 1.582031 22.625 1.71875 22.6875 C 1.757813 22.710938 1.800781 22.730469 1.84375 22.75 C 2.191406 22.910156 2.570313 23 2.96875 23 L 18.96875 23 C 20.570313 23 22.066406 22.035156 22.6875 20.5625 L 22.6875 20.53125 L 25.78125 12.21875 L 25.78125 12.1875 C 26.078125 11.457031 26.085938 10.609375 25.65625 9.96875 C 25.222656 9.316406 24.425781 9 23.625 9 L 22 9 C 22 7.34375 20.65625 6 19 6 L 11 6 C 11 4.34375 9.65625 3 8 3 Z M 7.625 11 L 23.625 11 C 23.929688 11 23.992188 11.082031 24 11.09375 C 24.007813 11.105469 24.054688 11.160156 23.9375 11.4375 L 23.9375 11.5 L 20.84375 19.78125 L 20.8125 19.8125 C 20.554688 20.359375 19.566406 21 18.96875 21 L 2.96875 21 C 2.664063 21 2.632813 20.917969 2.625 20.90625 C 2.617188 20.894531 2.570313 20.839844 2.6875 20.5625 L 2.6875 20.53125 L 5.78125 12.21875 C 5.785156 12.207031 5.808594 12.199219 5.8125 12.1875 C 6.070313 11.640625 7.027344 11 7.625 11 Z" />
+                <mui:ModernButton HorizontalAlignment="Left" 
+                                      Content="{StaticResource ButtonDisposeMessage}"
                                       Margin="10,10,10,10" 
-                                      Command="{Binding ButtonCommand1}"
+                                      Command="{Binding CommandDispose}"
                                       EllipseStrokeThickness="2" 
                                       EllipseDiameter="30" 
                                       IconWidth="15" 
                                       IconHeight="15" 
-                                      IconData="M13.5,3.188C7.805,3.188,3.188,7.805,3.188,13.5S7.805,23.813,13.5,23.813S23.813,19.195,23.813,13.5 S19.195,3.188,13.5,3.188z M19,15h-4v4h-3v-4H8v-3h4V8h3v4h4V15z" />
-            <mui:ModernButton HorizontalAlignment="Left" 
-                                      Content="{StaticResource ButtonEditMessage}"
+                                      IconData="M 16 4 L 16 6 C 21.535156 6 26 10.464844 26 16 C 26 21.535156 21.535156 26 16 26 C 10.464844 26 6 21.535156 6 16 C 6 12.734375 7.585938 9.851563 10 8.03125 L 10 13 L 12 13 L 12 5 L 4 5 L 4 7 L 8.09375 7 C 5.59375 9.199219 4 12.417969 4 16 C 4 22.617188 9.382813 28 16 28 C 22.617188 28 28 22.617188 28 16 C 28 9.382813 22.617188 4 16 4 Z" />
+                <mui:ModernButton HorizontalAlignment="Left" 
+                                      Content="{StaticResource ButtonDisplayMessage}"
                                       Margin="10,10,10,10" 
-                                      Command="{Binding ButtonCommand2}" 
+                                      Command="{Binding CommandDisplay}"
                                       EllipseStrokeThickness="2" 
                                       EllipseDiameter="30" 
                                       IconWidth="15" 
                                       IconHeight="15" 
-                                      IconData="M 20.09375 0.25 C 19.5 0.246094 18.917969 0.457031 18.46875 0.90625 L 17.46875 1.9375 L 24.0625 8.5625 L 25.0625 7.53125 C 25.964844 6.628906 25.972656 5.164063 25.0625 4.25 L 21.75 0.9375 C 21.292969 0.480469 20.6875 0.253906 20.09375 0.25 Z M 16.34375 2.84375 L 14.78125 4.34375 L 21.65625 11.21875 L 23.25 9.75 Z M 13.78125 5.4375 L 2.96875 16.15625 C 2.71875 16.285156 2.539063 16.511719 2.46875 16.78125 L 0.15625 24.625 C 0.0507813 24.96875 0.144531 25.347656 0.398438 25.601563 C 0.652344 25.855469 1.03125 25.949219 1.375 25.84375 L 9.21875 23.53125 C 9.582031 23.476563 9.882813 23.222656 10 22.875 L 20.65625 12.3125 L 19.1875 10.84375 L 8.25 21.8125 L 3.84375 23.09375 L 2.90625 22.15625 L 4.25 17.5625 L 15.09375 6.75 Z M 16.15625 7.84375 L 5.1875 18.84375 L 6.78125 19.1875 L 7 20.65625 L 18 9.6875 Z" />
-            <mui:ModernButton HorizontalAlignment="Left" 
-                                      Content="{StaticResource ButtonRemoveMessage}"
+                                      IconData="M 21.332031 4.292969 L 19.917969 5.707031 L 24.210938 10 L 22 10 C 14.832031 10 9 15.832031 9 23 L 11 23 C 11 16.914063 15.914063 12 22 12 L 24.210938 12 L 19.917969 16.292969 L 21.332031 17.707031 L 28.039063 11 Z M 5 11 L 5 27 L 27 27 L 27 21 L 25 21 L 25 25 L 7 25 L 7 11 Z">
+                </mui:ModernButton>
+                <mui:ModernButton HorizontalAlignment="Left" 
+                                      Content="{StaticResource ButtonClearMessage}"
                                       Margin="10,10,10,10" 
-                                      Command="{Binding ButtonCommand2}" 
+                                      Command="{Binding CommandClear}"
                                       EllipseStrokeThickness="2" 
                                       EllipseDiameter="30" 
                                       IconWidth="15" 
                                       IconHeight="15" 
-                                      IconData="M 21.734375 19.640625 L 19.636719 21.734375 C 19.253906 22.121094 18.628906 22.121094 18.242188 21.734375 L 13 16.496094 L 7.761719 21.734375 C 7.375 22.121094 6.746094 22.121094 6.363281 21.734375 L 4.265625 19.640625 C 3.878906 19.253906 3.878906 18.628906 4.265625 18.242188 L 9.503906 13 L 4.265625 7.761719 C 3.882813 7.371094 3.882813 6.742188 4.265625 6.363281 L 6.363281 4.265625 C 6.746094 3.878906 7.375 3.878906 7.761719 4.265625 L 13 9.507813 L 18.242188 4.265625 C 18.628906 3.878906 19.257813 3.878906 19.636719 4.265625 L 21.734375 6.359375 C 22.121094 6.746094 22.121094 7.375 21.738281 7.761719 L 16.496094 13 L 21.734375 18.242188 C 22.121094 18.628906 22.121094 19.253906 21.734375 19.640625 Z" />
-            <mui:ModernButton HorizontalAlignment="Left" 
-                                      Content="{StaticResource ButtonExportMessage}"
-                                      Margin="10,10,10,10" 
-                                      Command="{Binding ButtonCommand2}" 
-                                      EllipseStrokeThickness="2" 
-                                      EllipseDiameter="30" 
-                                      IconWidth="15" 
-                                      IconHeight="15" 
-                                      IconData="M 15.5 4 C 13.300781 4 11.199219 5.199219 10 7 L 9.5 7 C 7 7 4.886719 8.699219 4.1875 11 C 1.886719 11.101563 0 13.101563 0 15.5 C 0 18 2 20 4.5 20 L 20.5 20 C 23.5 20 26 17.5 26 14.5 C 26 12 24.304688 9.789063 21.90625 9.1875 C 21.304688 6.1875 18.601563 4 15.5 4 Z M 15.5 6 C 17.800781 6 19.800781 7.792969 20 10.09375 L 20 11 L 20.8125 11.09375 C 22.613281 11.292969 23.90625 12.792969 23.90625 14.59375 C 24.007813 16.394531 22.398438 18 20.5 18 L 4.5 18 C 3.101563 18 2 16.898438 2 15.5 C 2 14.101563 3.101563 13 4.5 13 L 4.90625 13 L 5.90625 13.1875 L 6 12.1875 C 6.199219 10.386719 7.699219 9 9.5 9 C 9.699219 9 10.011719 8.992188 10.3125 9.09375 L 11.09375 9.3125 L 11.40625 8.59375 C 12.207031 6.992188 13.800781 6 15.5 6 Z M 14 9.5 L 10.5 13 L 13 13 L 13 16 L 15 16 L 15 13 L 17.5 13 Z" />
-            <mui:ModernButton HorizontalAlignment="Left" 
-                                      Content="{StaticResource ButtonImportMessage}"
-                                      Margin="10,10,10,10" 
-                                      Command="{Binding ButtonCommand2}" 
-                                      EllipseStrokeThickness="2" 
-                                      EllipseDiameter="30" 
-                                      IconWidth="15" 
-                                      IconHeight="15" 
-                                      IconData="M 15.5 4 C 13.300781 4 11.199219 5.199219 10 7 L 9.5 7 C 7 7 4.886719 8.699219 4.1875 11 C 1.886719 11.101563 0 13.101563 0 15.5 C 0 18 2 20 4.5 20 L 20.5 20 C 23.5 20 26 17.5 26 14.5 C 26 12 24.304688 9.789063 21.90625 9.1875 C 21.304688 6.1875 18.601563 4 15.5 4 Z M 15.5 6 C 17.800781 6 19.800781 7.792969 20 10.09375 L 20 11 L 20.8125 11.09375 C 22.613281 11.292969 23.90625 12.792969 23.90625 14.59375 C 24.007813 16.394531 22.398438 18 20.5 18 L 4.5 18 C 3.101563 18 2 16.898438 2 15.5 C 2 14.101563 3.101563 13 4.5 13 L 4.90625 13 L 5.90625 13.1875 L 6 12.1875 C 6.199219 10.386719 7.699219 9 9.5 9 C 9.699219 9 10.011719 8.992188 10.3125 9.09375 L 11.09375 9.3125 L 11.40625 8.59375 C 12.207031 6.992188 13.800781 6 15.5 6 Z M 13 10 L 13 13 L 10.5 13 L 14 16.5 L 17.5 13 L 15 13 L 15 10 Z" />
-        </StackPanel>-->
+                                      IconData="M 11.5 -0.03125 C 9.542969 -0.03125 7.96875 1.59375 7.96875 3.5625 L 7.96875 4 L 4 4 C 3.449219 4 3 4.449219 3 5 L 3 6 L 2 6 L 2 8 L 4 8 L 4 23 C 4 24.644531 5.355469 26 7 26 L 19 26 C 20.644531 26 22 24.644531 22 23 L 22 8 L 24 8 L 24 6 L 23 6 L 23 5 C 23 4.449219 22.550781 4 22 4 L 18.03125 4 L 18.03125 3.5625 C 18.03125 1.59375 16.457031 -0.03125 14.5 -0.03125 Z M 11.5 2.03125 L 14.5 2.03125 C 15.304688 2.03125 15.96875 2.6875 15.96875 3.5625 L 15.96875 4 L 10.03125 4 L 10.03125 3.5625 C 10.03125 2.6875 10.695313 2.03125 11.5 2.03125 Z M 6 8 L 11.125 8 C 11.25 8.011719 11.371094 8.03125 11.5 8.03125 L 14.5 8.03125 C 14.628906 8.03125 14.75 8.011719 14.875 8 L 20 8 L 20 23 C 20 23.5625 19.5625 24 19 24 L 7 24 C 6.4375 24 6 23.5625 6 23 Z M 8 10 L 8 22 L 10 22 L 10 10 Z M 12 10 L 12 22 L 14 22 L 14 10 Z M 16 10 L 16 22 L 18 22 L 18 10 Z">
+                </mui:ModernButton>
+            </StackPanel>
+            <DataGrid ItemsSource="{Binding StanByModel}" AutoGenerateColumns="False" Background="Transparent" SelectedItem="{Binding SelectedMessageStanBy, Mode=TwoWay}">
+                <DataGrid.Columns>
+                    <mui:DataGridTextColumn Header="키"  Binding="{Binding ID, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="이름" Binding="{Binding Name, Mode=OneWay}" />
+                    <mui:DataGridTextColumn Header="순번" Binding="{Binding Seq, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="시간" Binding="{Binding Time, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="출처" Binding="{Binding Value, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="내용" Binding="{Binding Desc, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="크기" Binding="{Binding Size, Mode=OneWay}"/>
+                </DataGrid.Columns>
+                <DataGrid.InputBindings>
+                    <MouseBinding Gesture="LeftDoubleClick" Command="{Binding CommandDoubleClickStanBy}" />
+                </DataGrid.InputBindings>
+            </DataGrid>
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="MnStudio.Views.Message"
+﻿<UserControl x:Class="MnStudio.Views.Pages.Message"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -33,6 +33,7 @@
         <!-- the default page root, no margin settings required -->
         <Grid>
             <Rectangle Grid.RowSpan="2" />
+            <local:Option></local:Option>
 
             <!-- content root for additional spacing -->
             <Grid Margin="{StaticResource ContentMargin}">
@@ -41,7 +42,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Rectangle />
-                <local:MessageContainer></local:MessageContainer>
+                <local:Message></local:Message>
                 
                 <!-- optional header -->
                 <Grid Margin="{StaticResource HeaderMargin}" HorizontalAlignment="Right" VerticalAlignment="Top">

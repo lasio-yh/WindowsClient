@@ -16,118 +16,91 @@ using System.Xml.Serialization;
 using System.Windows.Forms;
 using MnStudio.Core.Models.MiddleWare;
 using MnStudio.Core.Services;
+using MnStudio.Core.Models;
 
 namespace MnStudio.ViewModels
 {
     class DisplayViewModel : DocumentViewModel
     {
         DRAWRULES _ruleType = DRAWRULES.NONE;
+        string _autho = string.Empty;
+        string _content = string.Empty;
 
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         public DisplayViewModel()
         {
-               NotifyPush.ChangedPlayType += OnChangedPlayType;
+            NotifyPush.ApplyStanBy += OnApplyStanBy;
         }
 
-        private void OnChangedPlayType(object sender)
+        private void OnApplyStanBy(object sender)
         {
-            _ruleType = (DRAWRULES)sender;
-        }
+            var obj = sender as MessageModel;
+            if (obj == null)
+                return;
 
-        /// <summary>
-        /// implement of property
-        /// </summary>
-        /// <returns>value in property</returns>
-        private bool _isCut;
-        public bool IsCut
-        {
-            get
-            {
-                return _isCut;
-            }
-            set
-            {
-                this._isCut = value;
-                OnPropertyChanged("IsCut");
-                NotifyPush.Notify(NOTIFYCODE.CHANGEDPLAYTYPE, DRAWRULES.CUT);
-            }
+            _ruleType = DRAWRULES.CRAW;
+            _autho = obj.Name;
+            _content = obj.Desc;
         }
 
         /// <summary>
-        /// implement of property
+        /// implement of icommand can execute method
         /// </summary>
-        /// <returns>value in property</returns>
-        private bool _isTypeWrite;
-        public bool IsTypeWrite
+        /// <returns>can execute or not</returns>
+        private ICommand _commandInitialize;
+        public ICommand CommandInitialize
         {
-            get
-            {
-                return _isTypeWrite;
-            }
-            set
-            {
-                this._isTypeWrite = value;
-                OnPropertyChanged("IsTypeWrite");
-                NotifyPush.Notify(NOTIFYCODE.CHANGEDPLAYTYPE, DRAWRULES.TYPEWRITE);
-            }
+            get { return (this._commandInitialize) ?? (this._commandInitialize = new DelegateCommand(OnInitialize)); }
         }
-
-        /// <summary>
-        /// implement of property
-        /// </summary>
-        /// <returns>value in property</returns>
-        private bool _isCraw;
-        public bool IsCraw
+        private void OnInitialize()
         {
-            get
+            try
             {
-                return _isCraw;
+                var obj = new RequestRenderInitModel
+                {
+                    command = 1,
+                    filename = App.Current.Properties["FileName"].ToString(),
+                    filepath = @App.Current.Properties["FilePath"].ToString(),
+                    fileindex = 0,
+                    displaymode = 0
+                };
+                MiddleWareController.Send<RequestRenderInitModel>(obj);
             }
-            set
+            catch (AccessViolationException ex)
             {
-                this._isCraw = value;
-                OnPropertyChanged("IsCraw");
-                NotifyPush.Notify(NOTIFYCODE.CHANGEDPLAYTYPE, DRAWRULES.CRAW);
+                LogCommand.WriteSystem(LOGLEVEL.ERROR, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                LogCommand.WriteSystem(LOGLEVEL.ERROR, ex.Message);
             }
         }
 
         /// <summary>
-        /// implement of property
+        /// implement of icommand can execute method
         /// </summary>
-        /// <returns>value in property</returns>
-        private bool _isTicker;
-        public bool IsTicker
+        /// <returns>can execute or not</returns>
+        private ICommand _commandDispose;
+        public ICommand CommandDispose
         {
-            get
-            {
-                return _isTicker;
-            }
-            set
-            {
-                this._isTicker = value;
-                OnPropertyChanged("IsTicker");
-                NotifyPush.Notify(NOTIFYCODE.CHANGEDPLAYTYPE, DRAWRULES.TICKER);
-            }
+            get { return (this._commandDispose) ?? (this._commandDispose = new DelegateCommand(OnDispose)); }
         }
-
-        /// <summary>
-        /// implement of property
-        /// </summary>
-        /// <returns>value in property</returns>
-        private bool _isTexture;
-        public bool IsTexture
+        private void OnDispose()
         {
-            get
+            try
             {
-                return _isTexture;
+                var obj = new RequestRenderModel { command = 2 };
+                MiddleWareController.Send<RequestRenderModel>(obj);
             }
-            set
+            catch (AccessViolationException ex)
             {
-                this._isTexture = value;
-                OnPropertyChanged("IsTexture");
-                NotifyPush.Notify(NOTIFYCODE.CHANGEDPLAYTYPE, DRAWRULES.TEXTURE);
+                LogCommand.WriteSystem(LOGLEVEL.ERROR, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                LogCommand.WriteSystem(LOGLEVEL.ERROR, ex.Message);
             }
         }
 
@@ -153,7 +126,7 @@ namespace MnStudio.ViewModels
                             var obj = new RequestRenderCutModel();
                             obj.command = 3;
                             obj.action = 1;
-                            obj.content = "Sample Text Message";
+                            obj.content = _content;
                             MiddleWareController.Send<RequestRenderDisplayModel>(obj);
                             break;
                         }
@@ -162,7 +135,7 @@ namespace MnStudio.ViewModels
                             var obj = new RequestRenderTypeWriteModel();
                             obj.command = 3;
                             obj.action = 2;
-                            obj.content = "Sample TypeWrite Message";
+                            obj.content = _content;
                             MiddleWareController.Send<RequestRenderDisplayModel>(obj);
                             break;
                         }
@@ -175,7 +148,7 @@ namespace MnStudio.ViewModels
                             obj.margin = 10;
                             obj.width = 1920;
                             obj.isshow = 0;
-                            obj.content = "Sample Craw Message";
+                            obj.content = _content;
                             MiddleWareController.Send<RequestRenderDisplayModel>(obj);
                             break;
                         }
@@ -186,7 +159,7 @@ namespace MnStudio.ViewModels
                             obj.action = 4;
                             obj.speed = 10;
                             obj.linespeed = 10;
-                            obj.content = "Sample Ticker Message";
+                            obj.content = _content;
                             MiddleWareController.Send<RequestRenderDisplayModel>(obj);
                             break;
                         }
@@ -195,7 +168,7 @@ namespace MnStudio.ViewModels
                             var obj = new RequestRenderTextureModel();
                             obj.command = 3;
                             obj.action = 5;
-                            obj.content = "Templates\\res\\background.png";
+                            obj.content = _content;
                             MiddleWareController.Send<RequestRenderDisplayModel>(obj);
                             break;
                         }

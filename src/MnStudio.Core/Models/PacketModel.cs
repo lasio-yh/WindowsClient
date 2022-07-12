@@ -16,7 +16,7 @@ namespace MnStudio.Core.Models
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = 2)]
     public struct PacketModel
     {
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 255)]
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 65535)]
         public string Content;
         public PacketModel(string data)
         {

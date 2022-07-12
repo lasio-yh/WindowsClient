@@ -16,9 +16,8 @@ namespace MnStudio.ViewModels
         /// </summary>
         public LoginViewModel()
         {
-            IsChecked = (bool)App.Current.Properties["isChecked"];
-            ID = IsChecked ? (string)App.Current.Properties["Id"] : string.Empty;
-            NotifyPush.ReceiveLogin += CallBackReceiveMessageServer;
+            ID = App.Current.Properties["Id"].ToString();
+            NotifyPush.ReceiveLogin += OnReceiveLogin;
         }
 
         /// <summary>
@@ -45,11 +44,13 @@ namespace MnStudio.ViewModels
                 ModernDialog.ShowMessage("Empty Id...", "Info", MessageBoxButton.OK);
                 return;
             }
+
             IsActive = true;
             IsEnableID = false;
             IsEnablePassword = false;
             IsEnableLogin = false;
             IsEnableAutoLogin = false;
+
             var paramLogin = new RequestLoginModel
             {
                 UID = App.Current.Properties["Id"].ToString(),
@@ -58,9 +59,8 @@ namespace MnStudio.ViewModels
                 PW = App.Current.Properties["Password"].ToString(),
                 COUNT = "0"
             };
-            var data = ServerController.OnCreatePacket(paramLogin, App.Current.Properties["Uid"].ToString());
-            //ServerController.OnSend(data);
-            NotifyPush.Notify(NOTIFYCODE.RESLOGIN, null);
+            var data = ServerController.OnCreatePacket(paramLogin, "101");
+            ServerController.OnSend(data);
         }
 
         /// <summary>
@@ -102,24 +102,6 @@ namespace MnStudio.ViewModels
                     this._password = value;
                     OnPropertyChanged("Password");
                 }
-            }
-        }
-
-        /// <summary>
-        /// implement of property
-        /// </summary>
-        /// <returns>value in property</returns>
-        private bool _isChecked = true;
-        public bool IsChecked
-        {
-            get
-            {
-                return _isChecked;
-            }
-            set
-            {
-                this._isChecked = value;
-                OnPropertyChanged("IsChecked");
             }
         }
 
@@ -213,14 +195,20 @@ namespace MnStudio.ViewModels
             }
         }
 
-        private void CallBackReceiveMessageServer(object sender)
+        private void OnReceiveLogin(object sender)
         {
             //실패
-            ModernDialog.ShowMessage("Fail Id...", "Info", MessageBoxButton.OK);
             IsEnableID = true;
             IsEnablePassword = true;
             IsEnableLogin = true;
             IsEnableAutoLogin = true;
+            IsActive = false;
+
+            //성공
+            IsEnableID = false;
+            IsEnablePassword = false;
+            IsEnableLogin = false;
+            IsEnableAutoLogin = false;
             IsActive = false;
         }
     }

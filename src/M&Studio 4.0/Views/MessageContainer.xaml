@@ -13,10 +13,10 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <ScrollViewer>
-            <StackPanel Orientation="Vertical">
+            <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
                 <TextBlock Text="{StaticResource MessageTitle1}" Style="{StaticResource Heading2}" Margin="0,0,0,10" />
                 <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Height="40">
-                    <TextBox Text="{Binding Keyword}" FlowDirection="LeftToRight" Padding="3,3,3,3" Width="375" MaxWidth="375" Margin="0,0,0,0"/>
+                    <TextBox Text="{Binding Keyword}" FlowDirection="LeftToRight" Padding="3,3,2,2" Width="375" MaxWidth="375" Margin="0,0,0,0"/>
                     <mui:ModernButton HorizontalAlignment="Right" 
                                       Content="{StaticResource ButtonFindMessage}"
                                       Margin="10,0,0,0" 
@@ -43,11 +43,11 @@
                     <TextBlock Text="메시지 통계" Style="{StaticResource Heading2}" />
                     <mui:BBCodeBlock BBCode="문자 1건 | 이미지 1건 | 필터링 1건 | 총 3 건" Margin="20,0,0,32"/>
                 </StackPanel>
-                <mui:ModernTab SelectedSource="/Views/MessageArchive.xaml" Background="Black" Layout="Tab">
+                <mui:ModernTab SelectedSource="/Views/MessageBoard.xaml" Background="Black" Layout="Tab">
                     <mui:ModernTab.Links>
-                        <mui:Link DisplayName="{StaticResource MessageTitle6}" Source="/Views/MessageArchive.xaml" />
-                        <mui:Link DisplayName="{StaticResource MessageTitle7}" Source="/Views/MessageStanBy.xaml" />
-                        <mui:Link DisplayName="{StaticResource MessageTitle8}" Source="/Views/MessageCompleate.xaml" />
+                        <mui:Link DisplayName="{StaticResource MessageTitle6}" Source="/Views/MessageBoard.xaml" />
+                        <mui:Link DisplayName="{StaticResource MessageTitle7}" Source="/Views/MessageBoard.xaml" />
+                        <mui:Link DisplayName="{StaticResource MessageTitle8}" Source="/Views/MessageBoard.xaml" />
                     </mui:ModernTab.Links>
                 </mui:ModernTab>
             </StackPanel>

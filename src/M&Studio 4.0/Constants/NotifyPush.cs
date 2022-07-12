@@ -15,11 +15,16 @@ namespace MnStudio.Constants
         public static event Action<object> ClearFile;
         public static event Action<object> UndoSlide;
         public static event Action<object> RedoSlide;
-        public static event Action<object> ChangedPlayType;
-        public static event Action<object> ApplyDisplay;
+        public static event Action<object> ApplyStanBy;
         public static event Action<object> ConnectServer;
         public static event Action<object> DisconnectServer;
-        public static event Action<object> Send;
+        public static event Action<object> ReceiveStart;
+        public static event Action<object> ReceiveStop;
+        public static event Action<object> ReceiveInitialize;
+        public static event Action<object> ReceiveDispose;
+        public static event Action<object> ReceiveDisplay;
+        public static event Action<object> ReceiveRender;
+        public static event Action<object> ReceiveClear;
         public static event Action<object> ReceiveLogin;
         public static event Action<object> ReceiveMessageSetting;
         public static event Action<object> ReceiveMessageData;
@@ -63,17 +68,10 @@ namespace MnStudio.Constants
 
                         break;
                     }
-                case NOTIFYCODE.CHANGEDPLAYTYPE:
+                case NOTIFYCODE.APPLYSTANBY:
                     {
-                        if (ChangedPlayType != null)
-                            ChangedPlayType(obj);
-
-                        break;
-                    }
-                case NOTIFYCODE.APPLYDISPLAY:
-                    {
-                        if (ApplyDisplay != null)
-                            ApplyDisplay(obj);
+                        if (ApplyStanBy != null)
+                            ApplyStanBy(obj);
 
                         break;
                     }
@@ -91,11 +89,53 @@ namespace MnStudio.Constants
 
                         break;
                     }
-                case NOTIFYCODE.SENDSERVER:
+                case NOTIFYCODE.RECEIVESTART:
                     {
-                        if (Send != null)
-                            Send(obj); 
+                        if (ReceiveStart != null)
+                            ReceiveStart(obj); 
                         
+                        break;
+                    }
+                case NOTIFYCODE.RECEIVESTOP:
+                    {
+                        if (ReceiveStop != null)
+                            ReceiveStop(obj);
+
+                        break;
+                    }
+                case NOTIFYCODE.RESINIT:
+                    {
+                        if (ReceiveInitialize != null)
+                            ReceiveInitialize(obj);
+
+                        break;
+                    }
+                case NOTIFYCODE.RESDISPOSE:
+                    {
+                        if (ReceiveDispose != null)
+                            ReceiveDispose(obj);
+
+                        break;
+                    }
+                case NOTIFYCODE.RESDISPLAY:
+                    {
+                        if (ReceiveDisplay != null)
+                            ReceiveDisplay(obj);
+
+                        break;
+                    }
+                case NOTIFYCODE.RESRENDER:
+                    {
+                        if (ReceiveRender != null)
+                            ReceiveRender(obj);
+
+                        break;
+                    }
+                case NOTIFYCODE.RESCLEAR:
+                    {
+                        if (ReceiveClear != null)
+                            ReceiveClear(obj);
+
                         break;
                     }
                 case NOTIFYCODE.RESLOGIN:

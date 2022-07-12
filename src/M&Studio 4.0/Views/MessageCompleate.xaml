@@ -3,9 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+    <Grid Style="{StaticResource ContentRoot}">
+        <StackPanel FlowDirection="LeftToRight" Orientation="Vertical">
+            <DataGrid ItemsSource="{Binding CompleateModel}" AutoGenerateColumns="False" Background="Transparent" SelectedItem="{Binding SelectedMessageCompleate, Mode=TwoWay}">
+                <DataGrid.Columns>
+                    <mui:DataGridTextColumn Header="키"  Binding="{Binding ID, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="이름" Binding="{Binding Name, Mode=OneWay}" />
+                    <mui:DataGridTextColumn Header="순번" Binding="{Binding Seq, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="시간" Binding="{Binding Time, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="출처" Binding="{Binding Value, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="내용" Binding="{Binding Desc, Mode=OneWay}"/>
+                    <mui:DataGridTextColumn Header="크기" Binding="{Binding Size, Mode=OneWay}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
     </Grid>
 </UserControl>

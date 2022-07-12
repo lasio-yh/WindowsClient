@@ -8,7 +8,16 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <ScrollViewer>
         <StackPanel Margin="0,0,0,0" HorizontalAlignment="Stretch" Orientation="Horizontal">
-            <TextBlock Text="{Binding NowTime, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Title}" Margin="0,0,0,0"/>
+            <TextBlock Text="접속시간" VerticalAlignment="Center" Style="{StaticResource Heading2}" Margin="0,0,5,10" />
+            <TextBlock Text="{Binding ConnectTime, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Heading2}" Margin="0,0,20,0"/>
+            <TextBlock Text="종료시간" VerticalAlignment="Center" Style="{StaticResource Heading2}" Margin="0,0,5,10" />
+            <TextBlock Text="{Binding DisconnectTime, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Heading2}" Margin="0,0,20,0"/>
+            <TextBlock Text="시작시간" VerticalAlignment="Center" Style="{StaticResource Heading2}" Margin="0,0,5,10" />
+            <TextBlock Text="{Binding StartReceiveTime, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Heading2}" Margin="0,0,20,0"/>
+            <TextBlock Text="중지시간" VerticalAlignment="Center" Style="{StaticResource Heading2}" Margin="0,0,5,10" />
+            <TextBlock Text="{Binding StopReceiveTime, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Heading2}" Margin="0,0,20,0"/>
+            <TextBlock Text="현재시간" VerticalAlignment="Center" Style="{StaticResource Heading2}" Margin="0,0,5,10" />
+            <TextBlock Text="{Binding NowTime, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Heading2}" Margin="0,0,20,0"/>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

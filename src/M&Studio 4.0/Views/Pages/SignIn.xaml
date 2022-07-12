@@ -39,7 +39,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Rectangle />
-                <local:LoginContainer></local:LoginContainer>
+                <local:SignIn></local:SignIn>
 
                 <!-- optional header -->
                 <Grid Margin="{StaticResource HeaderMargin}" HorizontalAlignment="Right" VerticalAlignment="Top">

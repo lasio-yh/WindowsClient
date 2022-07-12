@@ -10,16 +10,6 @@
         <StackPanel FlowDirection="LeftToRight" Orientation="Vertical">
             <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal">
                 <mui:ModernButton HorizontalAlignment="Left" 
-                                      Content="{StaticResource ButtonActiveVote}"
-                                      Margin="10,10,10,10" 
-                                      Command="{Binding CommandActiveVote}" />
-                <mui:ModernButton HorizontalAlignment="Left" 
-                                      Content="{StaticResource ButtonStanyByVote}"
-                                      Margin="10,10,10,10" 
-                                      Command="{Binding CommandStanyByVote}" />
-            </StackPanel>
-            <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal">
-                <mui:ModernButton HorizontalAlignment="Left" 
                                       Content="{StaticResource ButtonStartVote}"
                                       Margin="10,10,10,10" 
                                       Command="{Binding CommandStartVote}" />
@@ -44,18 +34,6 @@
                                       Margin="10,10,10,10" 
                                       Command="{Binding CommandRemoveVote}" />
             </StackPanel>
-            <DataGrid ItemsSource="{Binding Model}" AutoGenerateColumns="False" Background="Transparent" SelectedItem="{Binding SelectedMessage, Mode=TwoWay}">
-                <DataGrid.Columns>
-                    <mui:DataGridTextColumn Header="ID"  Binding="{Binding ID}"/>
-                    <mui:DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                    <mui:DataGridTextColumn Header="Seq" Binding="{Binding Seq}"/>
-                    <mui:DataGridTextColumn Header="Time" Binding="{Binding Time}"/>
-                    <mui:DataGridTextColumn Header="Value" Binding="{Binding Value}"/>
-                    <mui:DataGridTextColumn Header="Desc" Binding="{Binding Desc}"/>
-                    <mui:DataGridCheckBoxColumn Header="IsChecked" Binding="{Binding IsChecked}" />
-                    <mui:DataGridTextColumn Header="Size" Binding="{Binding Size}"/>
-                </DataGrid.Columns>
-            </DataGrid>
         </StackPanel>
     </Grid>
 </UserControl>

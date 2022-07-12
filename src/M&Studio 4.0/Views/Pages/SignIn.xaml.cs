@@ -24,5 +24,25 @@ namespace MnStudio.Views.Pages
         {
             InitializeComponent();
         }
+
+        public void OnFragmentNavigation(FragmentNavigationEventArgs e)
+        {
+
+        }
+
+        public void OnNavigatedFrom(NavigationEventArgs e)
+        {
+
+        }
+
+        public void OnNavigatedTo(NavigationEventArgs e)
+        {
+
+        }
+
+        public void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+
+        }
     }
 }

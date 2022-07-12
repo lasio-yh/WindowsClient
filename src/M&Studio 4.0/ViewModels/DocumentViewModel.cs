@@ -23,32 +23,23 @@ namespace MnStudio.ViewModels
         /// </summary>
         public DocumentViewModel()
         {
-            _datasource = new ObservableCollection<EntityModel>();
-            NotifyPush.OpenFile += CallBackOpen;
-            NotifyPush.ClearFile += CallBackClear;
-            NotifyPush.UndoSlide += CallBackPrev;
-            NotifyPush.RedoSlide += CallBackNext;
+            NotifyPush.OpenFile += ReceiveOpen;
+            NotifyPush.ClearFile += ReceiveClear;
+            NotifyPush.UndoSlide += ReceiveUndo;
+            NotifyPush.RedoSlide += ReceiveRedo;
+
+            DocumentDataSource = new ObservableCollection<DocumentModel>();
         }
 
-        private Document _entity;
-
-        /// <summary>
-        /// implement of property
-        /// </summary>
-        /// <returns>value in property</returns>
-        private ObservableCollection<EntityModel> _datasource;
-        public ObservableCollection<EntityModel> DataSource
+        private ObservableCollection<DocumentModel> _documentDataSource;
+        public ObservableCollection<DocumentModel> DocumentDataSource
         {
-            get
-            {
-                return _datasource;
-            }
+            get { return _documentDataSource; }
             set
             {
-                if (value != null)
+                if (_documentDataSource != value)
                 {
-                    this._datasource = value;
-                    OnPropertyChanged("Model");
+                    _documentDataSource = value;
                 }
             }
         }
@@ -57,19 +48,19 @@ namespace MnStudio.ViewModels
         /// implement of property
         /// </summary>
         /// <returns>value in property</returns>
-        private MessageModel _selectedMessage;
-        public MessageModel SelectedMessage
+        private Document _entity;
+        public Document Entity
         {
             get
             {
-                return _selectedMessage;
+                return _entity;
             }
             set
             {
                 if (value != null)
                 {
-                    this._selectedMessage = value;
-                    OnPropertyChanged("SelectedMessage");
+                    this._entity = value;
+                    OnPropertyChanged("Entity");
                 }
             }
         }
@@ -110,64 +101,29 @@ namespace MnStudio.ViewModels
             }
         }
 
-        private void AddDataSource(int param)
-        {
-            var index = param - 1;
-            DataSource.Clear();
-            DataSource.Add(new EntityModel { ID = "MainEffect", Value = _entity.Value[index].Effect });
-            DataSource.Add(new EntityModel { ID = "Name", Value = _entity.Value[index].Value[0].Name });
-            DataSource.Add(new EntityModel { ID = "Type", Value = _entity.Value[index].Value[0].Type });
-            DataSource.Add(new EntityModel { ID = "Target", Value = _entity.Value[index].Value[0].Target });
-            DataSource.Add(new EntityModel { ID = "Origin", Value = _entity.Value[index].Value[0].Origin });
-            DataSource.Add(new EntityModel { ID = "SubEffect", Value = _entity.Value[index].Value[0].Effect });
-            DataSource.Add(new EntityModel { ID = "X", Value = _entity.Value[index].Value[0].X });
-            DataSource.Add(new EntityModel { ID = "Y", Value = _entity.Value[index].Value[0].Y });
-            DataSource.Add(new EntityModel { ID = "Width", Value = _entity.Value[index].Value[0].Width });
-            DataSource.Add(new EntityModel { ID = "Height", Value = _entity.Value[index].Value[0].Height });
-            DataSource.Add(new EntityModel { ID = "Group", Value = _entity.Value[index].Value[0].Group });
-            DataSource.Add(new EntityModel { ID = "Alpha", Value = _entity.Value[index].Value[0].Alpha });
-            DataSource.Add(new EntityModel { ID = "Align", Value = _entity.Value[index].Value[0].Text.Align });
-            DataSource.Add(new EntityModel { ID = "Blur", Value = _entity.Value[index].Value[0].Text.Blur });
-            DataSource.Add(new EntityModel { ID = "Edge", Value = _entity.Value[index].Value[0].Text.Edge });
-            DataSource.Add(new EntityModel { ID = "Face", Value = _entity.Value[index].Value[0].Text.Face });
-            DataSource.Add(new EntityModel { ID = "FontType", Value = _entity.Value[index].Value[0].Text.FontType });
-            DataSource.Add(new EntityModel { ID = "TextHeight", Value = _entity.Value[index].Value[0].Text.Height });
-            DataSource.Add(new EntityModel { ID = "Interval", Value = _entity.Value[index].Value[0].Text.Interval });
-            DataSource.Add(new EntityModel { ID = "Italic", Value = _entity.Value[index].Value[0].Text.Italic });
-            DataSource.Add(new EntityModel { ID = "LineInterval", Value = _entity.Value[index].Value[0].Text.LineInterval });
-            DataSource.Add(new EntityModel { ID = "TextName", Value = _entity.Value[index].Value[0].Text.Name });
-            DataSource.Add(new EntityModel { ID = "Shadow", Value = _entity.Value[index].Value[0].Text.Shadow });
-            DataSource.Add(new EntityModel { ID = "ShadowAlpha", Value = _entity.Value[index].Value[0].Text.ShadowAlpha });
-            DataSource.Add(new EntityModel { ID = "ShadowBlur", Value = _entity.Value[index].Value[0].Text.ShadowBlur });
-            DataSource.Add(new EntityModel { ID = "ShadowX", Value = _entity.Value[index].Value[0].Text.ShadowX });
-            DataSource.Add(new EntityModel { ID = "ShadowY", Value = _entity.Value[index].Value[0].Text.ShadowY });
-            DataSource.Add(new EntityModel { ID = "TextType", Value = _entity.Value[index].Value[0].Text.TextType });
-            DataSource.Add(new EntityModel { ID = "Value", Value = _entity.Value[index].Value[0].Text.Value });
-            DataSource.Add(new EntityModel { ID = "Weight", Value = _entity.Value[index].Value[0].Text.Weight });
-            DataSource.Add(new EntityModel { ID = "TextWidth", Value = _entity.Value[index].Value[0].Text.Width });
-        }
-
-        private void CallBackOpen(object sender)
+        private void ReceiveOpen(object sender)
         {
             if (sender == null)
                 return;
 
             _entity = sender as Document;
-            TotalIndex = _entity.Value.Count;
+            TotalIndex = Entity.Value.Count;
             CurrentIndex = 1;
-            AddDataSource(_currentIndex);
+            var index = 1;
+            foreach(Item1 item in Entity.Value)
+            {
+                DocumentDataSource.Add(new DocumentModel(index++, "Effect", item));
+            }
         }
 
-
-        private void CallBackClear(object sender)
+        private void ReceiveClear(object sender)
         {
             _entity = null;
             TotalIndex = 0;
             CurrentIndex = 0;
-            DataSource.Clear();
         }
 
-        private void CallBackPrev(object sender)
+        private void ReceiveUndo(object sender)
         {
             if (_entity == null)
                 return;
@@ -176,10 +132,9 @@ namespace MnStudio.ViewModels
                 return;
 
             CurrentIndex--;
-            AddDataSource(_currentIndex);
         }
 
-        private void CallBackNext(object sender)
+        private void ReceiveRedo(object sender)
         {
             if (_entity == null)
                 return;
@@ -188,7 +143,6 @@ namespace MnStudio.ViewModels
                 return;
 
             CurrentIndex++;
-            AddDataSource(_currentIndex);
         }
 
         /// <summary>

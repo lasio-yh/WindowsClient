@@ -14,38 +14,26 @@ namespace MnStudio.ViewModels
     {
         public VoteViewModel()
         {
-            _model = new ObservableCollection<MessageModel>
-            {
-                new MessageModel{ID = "1", Name = "1234", Seq="1", Time="2022-04-01 16:00:21", Value = null, Desc = "KT Test Message.", IsChecked = false, Size = "10"}
-                , new MessageModel{ID = "2", Name = "5678", Seq="2", Time="2022-04-02 05:00:34",Value = null, Desc = "SKT Test Message.", IsChecked = false, Size = "10"}
-                , new MessageModel{ID = "3", Name = "9123", Seq="3", Time="2022-04-03 07:12:24",Value = null, Desc = "LG Test Message.", IsChecked = false, Size = "10"}
-                , new MessageModel{ID = "4", Name = "3435", Seq="4", Time="2022-04-03 08:43:12",Value = null, Desc = "SKT Test Message.", IsChecked = false, Size = "10"}
-                , new MessageModel{ID = "5", Name = "6565", Seq="5", Time="2022-04-03 12:21:43",Value = null, Desc = "LG Test Message.", IsChecked = false, Size = "10"}
-                , new MessageModel{ID = "6", Name = "9833", Seq="6", Time="2022-04-03 15:00:45",Value = null, Desc = "SKT Test Message.", IsChecked = false, Size = "10"}
-                , new MessageModel{ID = "7", Name = "6444", Seq="7", Time="2022-04-03 18:23:13",Value = null, Desc = "LG Test Message.", IsChecked = false, Size = "10"}
-                , new MessageModel{ID = "8", Name = "1218", Seq="8", Time="2022-04-03 06:45:23",Value = null, Desc = "SKT Test Message.", IsChecked = false, Size = "10"}
-                , new MessageModel{ID = "9", Name = "8785", Seq="9", Time="2022-04-03 07:23:21",Value = null, Desc = "KT Test Message.", IsChecked = false, Size = "10"}
-                , new MessageModel{ID = "10", Name = "3434", Seq="10", Time="2022-04-03 16:12:21",Value = null, Desc = "LG Test Message.", IsChecked = false, Size = "10"}
-            };
+            _boardModel = new ObservableCollection<MessageModel>();
         }
 
         /// <summary>
         /// implement of property
         /// </summary>
         /// <returns>value in property</returns>
-        private ObservableCollection<MessageModel> _model;
-        public ObservableCollection<MessageModel> Model
+        private ObservableCollection<MessageModel> _boardModel;
+        public ObservableCollection<MessageModel> BoardModel
         {
             get
             {
-                return _model;
+                return _boardModel;
             }
             set
             {
                 if (value != null)
                 {
-                    this._model = value;
-                    OnPropertyChanged("Model");
+                    this._boardModel = value;
+                    OnPropertyChanged("BoardModel");
                 }
             }
         }

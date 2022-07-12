@@ -48,6 +48,11 @@
     <system:String x:Key="ButtonRemoveMessage">메시지 삭제하기</system:String>
     <system:String x:Key="ButtonExportMessage">메시지 내보내기</system:String>
     <system:String x:Key="ButtonImportMessage">메시지 내려받기</system:String>
+    <system:String x:Key="ButtonStanByMessage">송출 대기</system:String>
+    <system:String x:Key="ButtonInitializeMessage">화면 설정하기</system:String>
+    <system:String x:Key="ButtonDisposeMessage">엔진 초기화 하기</system:String>
+    <system:String x:Key="ButtonDisplayMessage">화면 송출하기</system:String>
+    <system:String x:Key="ButtonClearMessage">화면 초기화 하기</system:String>
 
     <!-- VoteTitle -->
     <system:String x:Key="VoteTitle1">수신 메시지</system:String>
@@ -79,14 +84,44 @@
     <system:String x:Key="ButtonRenderTexture">텍스쳐</system:String>
     <system:String x:Key="ButtonRenderRolling">롤링</system:String>
 
+    <!-- OptionMenu -->
+    <system:String x:Key="ButtonSave">저장하기</system:String>
+
     <!-- Text Water Mark Name -->
     <system:String x:Key="TextBoxID">아이디를 입력하세요 ...</system:String>
     <system:String x:Key="TextBoxPassword">비밀번호를 입력하세요 ...</system:String>
     <system:String x:Key="TextBoxKeyword">검색어를 입력하세요 ...</system:String>
 
-    <!-- Status Title -->
-    <system:String x:Key="StatusTitle1">자막 열기 상태</system:String>
-    <system:String x:Key="StatusTitle2">서버 연결 상태</system:String>
-    <system:String x:Key="StatusTitle3">미들웨어 연결 상태</system:String>
-    <system:String x:Key="StatusTitle4">송출 상태</system:String>
+    <!-- Option Title -->
+    <system:String x:Key="IsDocument">자막</system:String>
+    <system:String x:Key="IsServerConnect">서버 연결</system:String>
+    <system:String x:Key="IsMiddleWare">미들웨어 연결</system:String>
+    <system:String x:Key="IsStartReceive">메시지 수신</system:String>
+    <system:String x:Key="IsUsedLogin">로그인</system:String>
+
+    <DataTemplate x:Key="ItemTemplate">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="5" />
+            <TextBlock Text="{Binding Type}" VerticalAlignment="Center" Margin="5" />
+            <TextBlock Text="{Binding Target}" VerticalAlignment="Center" Margin="5" />
+            <TextBlock Text="{Binding Origin}" VerticalAlignment="Center" Margin="5" />
+            <TextBlock Text="{Binding Effect}" VerticalAlignment="Center" Margin="5" />
+            <TextBlock Text="{Binding X}" VerticalAlignment="Center" Margin="5" />
+            <TextBlock Text="{Binding Y}" VerticalAlignment="Center" Margin="5" />
+            <TextBlock Text="{Binding Width}" VerticalAlignment="Center" Margin="5" />
+            <TextBlock Text="{Binding Height}" VerticalAlignment="Center" Margin="5" />
+            <TextBlock Text="{Binding Alpha}" VerticalAlignment="Center" Margin="5" />
+            <TextBlock Text="{Binding Group}" VerticalAlignment="Center" Margin="5" />
+        </StackPanel>
+    </DataTemplate>
+    <HierarchicalDataTemplate x:Key="DocumentTemplate"
+                              ItemsSource="{Binding ItemCollection}"
+                              ItemTemplate="{StaticResource ItemTemplate}">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding DocumentName}"
+                       Margin="5 5 10 10" />
+            <TextBlock Text="{Binding Effect}"
+                       Margin="5 5 10 10" />
+        </StackPanel>
+    </HierarchicalDataTemplate>
 </ResourceDictionary>

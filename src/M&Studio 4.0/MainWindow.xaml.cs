@@ -26,6 +26,7 @@ namespace MnStudio
         public MainWindow()
         {
             InitializeComponent();
+            Title = App.Current.Properties["Caption"].ToString();
         }
     }
 }

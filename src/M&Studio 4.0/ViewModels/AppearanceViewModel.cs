@@ -63,11 +63,15 @@ namespace MnStudio.ViewModels
         public AppearanceViewModel()
         {
             // add the default themes
+    
+
             this.themes.Add(new Link { DisplayName = "밝은 배경", Source = AppearanceManager.LightThemeSource });
             this.themes.Add(new Link { DisplayName = "밝은 배경이미지", Source = new Uri(ThemesPath.LightBingImage, UriKind.Relative) });
             this.themes.Add(new Link { DisplayName = "어두운 배경", Source = AppearanceManager.DarkThemeSource });
             this.themes.Add(new Link { DisplayName = "어두운 배경이미지", Source = new Uri(ThemesPath.DarkBingImage, UriKind.Relative) });
+
             this.SelectedFontSize = AppearanceManager.Current.FontSize == FontSize.Large ? FontLarge : FontSmall;
+            AppearanceManager.Current.ThemeSource = new Uri(ThemesPath.Dark, UriKind.Relative);
             SyncThemeAndColor();
             AppearanceManager.Current.PropertyChanged += OnAppearanceManagerPropertyChanged;
         }

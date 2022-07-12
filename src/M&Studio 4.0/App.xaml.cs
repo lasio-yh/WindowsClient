@@ -28,11 +28,13 @@ namespace MnStudio
             try
             {
                 LogCommand.WriteApplication(LOGLEVEL.INFO, "어플리케이션이 실행되었습니다.");
-                AppearanceManager.Current.ThemeSource = new Uri(ThemesPath.DarkBingImage, UriKind.Relative);
                 AppController.LoadConfiguration();
                 AppController.LoadLocalIpAddress();
                 AppController.Create();
-                ServerController.Create();
+                AppController.UsedMiddleWare = true;
+                AppController.IsCheckedMiddleWare();
+                //ProcessController.StartUp();
+                //ServerController.Create();
                 base.OnStartup(e);
                 Current.ShutdownMode = ShutdownMode.OnLastWindowClose;
             }
@@ -54,6 +56,24 @@ namespace MnStudio
         {
             try
             {
+                if (MiddleWareController.Status)
+                {
+                    ModernDialog.ShowMessage("현재송출중 입니다.", "Info", MessageBoxButton.OK);
+                    return;
+                }
+
+                if (AppController.StartReceive)
+                {
+                    ModernDialog.ShowMessage("메시지가 수신중 입니다.", "Info", MessageBoxButton.OK);
+                    return;
+                }
+
+                if (ServerController.Status)
+                {
+                    ModernDialog.ShowMessage("서버와 연결중 입니다.", "Info", MessageBoxButton.OK);
+                    return;
+                }
+                AppController.UsedMiddleWare = false;
                 LogCommand.WriteApplication(LOGLEVEL.INFO, "어플리케이션이 종료되었습니다.");
                 base.OnExit(e);
             }

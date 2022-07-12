@@ -9,6 +9,51 @@
     <Grid>
         <ScrollViewer>
             <StackPanel x:Name="Panel" MinWidth="150">
+                <TextBlock Text="자막 설정" Style="{StaticResource Heading2}" Margin="0,10,0,8" />
+                <Grid HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition MinWidth="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="이름" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Column="1" Text="{Binding FileName}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="1" Text="경로" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding FilePath}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="2" Text="인코딩 " VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding FileEncoding}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                </Grid>
+
+                <TextBlock Text="로컬 설정" Style="{StaticResource Heading2}" Margin="0,10,0,8" />
+                <Grid HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition MinWidth="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="아이피" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Column="1" Text="{Binding LocalIpAddress}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="1" Text="맥" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LocalMacAddress}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="2" Text="아이디 " VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Id}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="3" Text="비밀번호" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Password}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="4" Text="이름" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding ApplicationName}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                </Grid>
+                
+                <TextBlock Text="서버 설정" Style="{StaticResource Heading2}" Margin="0,10,0,8" />
                 <Grid HorizontalAlignment="Left">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -22,23 +67,73 @@
                         <RowDefinition />
                         <RowDefinition />
                     </Grid.RowDefinitions>
-
-                    <TextBlock Text="아이피" VerticalAlignment="Center" Margin="0,0,16,10" Style="{StaticResource Heading2}" />
-                    <TextBox Grid.Column="1" Text="{Binding IpAddress}"  FlowDirection="LeftToRight" Height="25" Width="200" Margin="0,0,16,10"/>
-                    <TextBlock Grid.Row="1" Text="맥 주소" VerticalAlignment="Center" Margin="0,0,16,10" Style="{StaticResource Heading2}" />
-                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding MacAddress}"  FlowDirection="LeftToRight" Height="25" Width="200" Margin="0,0,16,10"/>
-                    <TextBlock Grid.Row="2" Text="프로그램 키" VerticalAlignment="Center" Margin="0,0,16,10" Style="{StaticResource Heading2}" />
-                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ProgramKey}"  FlowDirection="LeftToRight" Height="25" Width="200" Margin="0,0,16,10"/>
-                    <TextBlock Grid.Row="3" Text="채널" VerticalAlignment="Center" Margin="0,0,16,10" Style="{StaticResource Heading2}" />
+                    <TextBlock Text="아이피" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Column="1" Text="{Binding ServerIp}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="1" Text="포트" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ServerPort}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="2" Text="프로그램 키" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ProgramKey}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="3" Text="채널" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
                     <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Channel}" SelectedItem="{Binding SelectedChannel, Mode=TwoWay}" 
 VerticalAlignment="Center" Margin="0,0,16,10" />
-                    <TextBlock Grid.Row="4" Text="조회 기간" VerticalAlignment="Center" Margin="0,0,16,10" Style="{StaticResource Heading2}" />
+                    <TextBlock Grid.Row="4" Text="조회 기간" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
                     <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding FindDate}" SelectedItem="{Binding SelectedFindDate, Mode=TwoWay}" 
 VerticalAlignment="Center" Margin="0,0,16,10" />
-                    <TextBlock Grid.Row="5" Text="조회 수" VerticalAlignment="Center" Margin="0,0,16,10" Style="{StaticResource Heading2}" />
+                    <TextBlock Grid.Row="5" Text="조회 건수" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
                     <ComboBox Grid.Row="5" Grid.Column="1" ItemsSource="{Binding FindSize}" SelectedItem="{Binding SelectedFindSize, Mode=TwoWay}" 
 VerticalAlignment="Center" Margin="0,0,16,10" />
                 </Grid>
+
+                <TextBlock Text="미들웨어 설정" Style="{StaticResource Heading2}" Margin="0,10,0,8" />
+                <Grid HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition MinWidth="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="이름" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Column="1" Text="{Binding MIddleWareName}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="1" Text="경로" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding MiddleWarePath}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="2" Text="호출 경로" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding MiddleWareUri}"  FlowDirection="LeftToRight" Height="25" Width="500" Margin="0,0,16,10"/>
+                    <TextBlock Grid.Row="3" Text="감지시간" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,0,16,10" />
+                    <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding DetectTime}" SelectedItem="{Binding SelectedDetectTime, Mode=TwoWay}" VerticalAlignment="Center" Margin="0,0,16,10" />
+                    <TextBlock Grid.Row="4" Text="타이핑 지연시간" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,20,16,10" />
+                    <Slider Grid.Row="4" Grid.Column="1" Orientation="Horizontal" IsSelectionRangeEnabled="True" Value="{Binding SelectedTypwWriteDelay, Mode=TwoWay}" IsDirectionReversed="False" IsMoveToPointEnabled="True" AutoToolTipPrecision="0" AutoToolTipPlacement="BottomRight"  TickPlacement="BottomRight" Minimum="1" Maximum="100" Margin="16,20,0,0" />
+                    <TextBlock Grid.Row="5" Text="스크롤 속도" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,20,16,10" />
+                    <Slider Grid.Row="5" Grid.Column="1" Orientation="Horizontal" IsSelectionRangeEnabled="True" Value="{Binding SelectedCrawSpeed, Mode=TwoWay}" IsDirectionReversed="False" IsMoveToPointEnabled="True" AutoToolTipPrecision="0" AutoToolTipPlacement="BottomRight"  TickPlacement="BottomRight" Minimum="1" Maximum="100" Margin="16,20,0,0" />
+                    <TextBlock Grid.Row="6" Text="스크롤 여백" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,20,16,10" />
+                    <Slider Grid.Row="6" Grid.Column="1" Orientation="Horizontal" IsSelectionRangeEnabled="True" Value="{Binding SelectedCrawMargin, Mode=TwoWay}" IsDirectionReversed="False" IsMoveToPointEnabled="True" AutoToolTipPrecision="0" AutoToolTipPlacement="BottomRight"  TickPlacement="BottomRight" Minimum="1" Maximum="100" Margin="16,20,0,0" />
+                    <TextBlock Grid.Row="7" Text="스크롤 넓이" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,20,16,10" />
+                    <Slider Grid.Row="7" Grid.Column="1" Orientation="Horizontal" IsSelectionRangeEnabled="True" Value="{Binding SelectedCrawWidth, Mode=TwoWay}" IsDirectionReversed="False" IsMoveToPointEnabled="True" AutoToolTipPrecision="0" AutoToolTipPlacement="BottomRight"  TickPlacement="BottomRight" Minimum="1" Maximum="100" Margin="16,20,0,0" />
+                    <TextBlock Grid.Row="8" Text="티커 속도" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,20,16,10" />
+                    <Slider Grid.Row="8" Grid.Column="1" Orientation="Horizontal" IsSelectionRangeEnabled="True" Value="{Binding SelectedTickerSpeed, Mode=TwoWay}" IsDirectionReversed="False" IsMoveToPointEnabled="True" AutoToolTipPrecision="0" AutoToolTipPlacement="BottomRight"  TickPlacement="BottomRight" Minimum="1" Maximum="100" Margin="16,20,0,0" />
+                    <TextBlock Grid.Row="9" Text="티커 줄 속도" VerticalAlignment="Stretch" TextAlignment="Right" Margin="0,20,16,10" />
+                    <Slider Grid.Row="9" Grid.Column="1" Orientation="Horizontal" IsSelectionRangeEnabled="True" Value="{Binding SelectedTickerLineSpeed, Mode=TwoWay}" IsDirectionReversed="False" IsMoveToPointEnabled="True" AutoToolTipPrecision="0" AutoToolTipPlacement="BottomRight"  TickPlacement="BottomRight" Minimum="1" Maximum="100" Margin="16,20,0,0" />
+                </Grid>
+
+                <mui:ModernButton HorizontalAlignment="Right" 
+                                      Content="{StaticResource ButtonSave}"
+                                      Margin="10,10,10,10" 
+                                      Command="{Binding CommandSave}"
+                                      EllipseStrokeThickness="2" 
+                                      EllipseDiameter="50" 
+                                      IconWidth="23" 
+                                      IconHeight="23" 
+                                      IconData="M 13 0.1875 C 5.925781 0.1875 0.1875 5.925781 0.1875 13 C 0.1875 20.074219 5.925781 25.8125 13 25.8125 C 20.074219 25.8125 25.8125 20.074219 25.8125 13 C 25.8125 5.925781 20.074219 0.1875 13 0.1875 Z M 19.734375 9.035156 L 12.863281 19.167969 C 12.660156 19.46875 12.335938 19.671875 12.015625 19.671875 C 11.695313 19.671875 11.34375 19.496094 11.117188 19.273438 L 7.085938 15.238281 C 6.8125 14.964844 6.8125 14.515625 7.085938 14.242188 L 8.082031 13.246094 C 8.355469 12.972656 8.804688 12.972656 9.074219 13.246094 L 11.699219 15.867188 L 17.402344 7.453125 C 17.621094 7.132813 18.0625 7.050781 18.382813 7.265625 L 19.550781 8.058594 C 19.867188 8.273438 19.953125 8.714844 19.734375 9.035156 Z" />
             </StackPanel>
         </ScrollViewer>
     </Grid>

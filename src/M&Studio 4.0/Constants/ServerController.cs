@@ -40,7 +40,7 @@ namespace MnStudio.Constants
         {
             try
             {
-                Core.Open(App.Current.Properties["ServerIp"].ToString(), Convert.ToInt32(App.Current.Properties["ServerPort"]), 0x1000000);
+                Core.Open(App.Current.Properties["ServerIp"].ToString(), Convert.ToInt32(App.Current.Properties["ServerPort"]), 0xffff);
                 Status = true;
                 NotifyPush.Notify(NOTIFYCODE.CONNECTSERVER, Status);
             }
@@ -76,18 +76,15 @@ namespace MnStudio.Constants
             }
         }
 
-        public static byte[] OnCreatePacket<T>(T content, string id)
+        public static string OnCreatePacket<T>(T content, string id)
         {
             try
             {
                 var convert = new ConvertService();
                 var jss = new JavaScriptSerializer();
-                var request = jss.Serialize(content);
-                var obj = new RequestModel { ID = id, REQUEST = request };
+                var obj = new RequestModel { ID = id, REQUEST = content };
                 var stream = jss.Serialize(obj);
-                var packet = new PacketModel(stream);
-                var data = convert.StructureToByte(packet);
-                return data;
+                return stream;
             }
             catch (AccessViolationException ex)
             {
@@ -101,7 +98,7 @@ namespace MnStudio.Constants
             }
         }
 
-        public static void OnSend(byte[] data)
+        public static void OnSend(string data)
         {
             try
             {

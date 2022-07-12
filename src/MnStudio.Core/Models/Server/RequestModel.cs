@@ -9,6 +9,6 @@ namespace MnStudio.Core.Models.Server
     public class RequestModel
     {
         public string ID { get; set; }
-        public string REQUEST { get; set; }
+        public object REQUEST { get; set; }
     }
 }

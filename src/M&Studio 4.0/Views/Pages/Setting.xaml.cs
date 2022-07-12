@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MnStudio.Views
+namespace MnStudio.Views.Pages
 {
     /// <summary>
     /// Setting.xaml에 대한 상호 작용 논리
@@ -23,6 +23,26 @@ namespace MnStudio.Views
         public Setting()
         {
             InitializeComponent();
+        }
+
+        public void OnFragmentNavigation(FragmentNavigationEventArgs e)
+        {
+
+        }
+
+        public void OnNavigatedFrom(NavigationEventArgs e)
+        {
+
+        }
+
+        public void OnNavigatedTo(NavigationEventArgs e)
+        {
+
+        }
+
+        public void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+
         }
     }
 }

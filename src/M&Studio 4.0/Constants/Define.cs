@@ -20,6 +20,18 @@ namespace MnStudio.Constants
     }
 
     /// <summary>
+    /// Enum Value
+    /// </summary>
+    /// <param name="CHECKED">parameter by default of 0x01</param>
+    /// <param name="UNCHECKED">parameter by default of 0x02</param>
+    [Flags]
+    public enum EDITORCODE
+    {
+        ADD = 0x00,
+        EDIT = 0x01
+    }
+
+    /// <summary>
     /// DRAWRULES Value
     /// </summary>
     /// <param name="Animation">parameter by default of 0x01</param>
@@ -38,16 +50,27 @@ namespace MnStudio.Constants
         NONE = 0x00, 
         CUT = 0x01,
         TYPEWRITE = 0x02, 
-        CRAW = 0x04,
-        TICKER = 0x08,
-        TEXTURE = 0xAF
+        CRAW = 0x03,
+        TICKER = 0x04,
+        TEXTURE = 0x05
+    }
+
+    /// <summary>
+    /// Enum Value
+    /// </summary>
+    /// <param name="CHECKED">parameter by default of 0x01</param>
+    /// <param name="UNCHECKED">parameter by default of 0x02</param>
+    [Flags]
+    public enum PACKETCOMMAND
+    {
+        MESSAGESETTING = 215,
+        MESSAGEDATA = 2011
     }
 
     /// <summary>
     /// Enum Value
     /// </summary>
     /// <param name="ITEM1">parameter by default of 0x01</param>
-    /// <param name="ITEM2">parameter by default of 0x02</param>
     [Flags]
     public enum NOTIFYCODE 
     {
@@ -55,21 +78,27 @@ namespace MnStudio.Constants
         SUCCESSFILECLEAR = 0x02, 
         UNDOSLIDE = 0x03,
         REDOSLIDE = 0x04,
-        CHANGEDPLAYTYPE = 0x05,
-        APPLYDISPLAY = 0x06,
-        CONNECTSERVER = 0x07,
-        DISCONNECTSERVER = 0x08,
-        SENDSERVER = 0x09,
-        RESLOGIN = 0x0A,
-        RESMESSAGESETTING = 0x0B,
-        RESMESSAGEDATA = 0x0C,
-        RESVOTELIST= 0x0D,
-        RESVOTEEDIT = 0x0E,
-        RESVOTEDELETE = 0x0F,
-        RESVOTESTATUS = 0x10,
-        RESVOTERESULT = 0x11,
-        RESVOTESTART = 0x12,
-        RESVOTESTOP = 0x13
+        APPLYSTANBY = 0x05,
+        CONNECTSERVER = 0x06,
+        DISCONNECTSERVER = 0x07,
+        RECEIVESTART = 0x08,
+        RECEIVESTOP = 0x09,
+        SENDSERVER = 0x0A,
+        RESINIT = 0x0B,
+        RESDISPOSE = 0x0C,
+        RESDISPLAY = 0x0D,
+        RESRENDER = 0x0E,
+        RESCLEAR = 0x0F,
+        RESLOGIN = 0x10,
+        RESMESSAGESETTING = 0x11,
+        RESMESSAGEDATA = 0x12,
+        RESVOTELIST= 0x13,
+        RESVOTEEDIT = 0x14,
+        RESVOTEDELETE = 0x15,
+        RESVOTESTATUS = 0x16,
+        RESVOTERESULT = 0x17,
+        RESVOTESTART = 0x18,
+        RESVOTESTOP = 0x19
     }
 
     /// <summary>

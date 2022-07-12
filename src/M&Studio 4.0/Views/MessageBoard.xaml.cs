@@ -24,7 +24,6 @@ namespace MnStudio.Views
         public MessageBoard()
         {
             InitializeComponent();
-            this.DataContext = AppController.Message;
         }
     }
 }

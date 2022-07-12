@@ -24,16 +24,16 @@ namespace MnStudio.ViewModels
             _timer.Interval = TimeSpan.FromMilliseconds(1000);
             _timer.Start();
             _timer.Tick += OnTimer;
-            NotifyPush.OpenFile += CallBackOpenFile;
-            NotifyPush.ClearFile += CallBackClearFile;
-            NotifyPush.UndoSlide += CallBackUndoFile;
-            NotifyPush.RedoSlide += CallBackRedoFile;
-            NotifyPush.ChangedPlayType += CallBackChangedPlayType;
-            NotifyPush.ConnectServer += CallBackConnectServer;
-            NotifyPush.DisconnectServer += CallBackDisconnectServer;
-            NotifyPush.Send += CallBackSendMessageServer;
-            NotifyPush.ReceiveLogin += CallBackReceiveMessageServer;
-            NotifyPush.ApplyDisplay += CallBackReceiveMessageMiddleWare;
+            NotifyPush.OpenFile += OnOpenDocument;
+            NotifyPush.ClearFile += OnClearDocument;
+            NotifyPush.UndoSlide += OnUndoFile;
+            NotifyPush.RedoSlide += OnRedoFile;
+            NotifyPush.ApplyStanBy += OnApplyStanBy;
+            NotifyPush.ConnectServer += OnConnectServer;
+            NotifyPush.DisconnectServer += OnDisconnectServer;
+            NotifyPush.ReceiveStart += OnReceiveStart;
+            NotifyPush.ReceiveStop += OnReceiveStop;
+            NotifyPush.ReceiveLogin += OnReceiveLogin;
         }
 
         private void OnTimer(object sender, EventArgs e)
@@ -63,6 +63,78 @@ namespace MnStudio.ViewModels
         /// implement of property
         /// </summary>
         /// <returns>value in property</returns>
+        private string _connectTime = string.Format(" {0}", TimeSpan.Zero);
+        public string ConnectTime
+        {
+            get
+            {
+                return _connectTime;
+            }
+            set
+            {
+                _connectTime = value;
+                OnPropertyChanged("ConnectTime");
+            }
+        }
+
+        /// <summary>
+        /// implement of property
+        /// </summary>
+        /// <returns>value in property</returns>
+        private string _disconnectTime = string.Format(" {0}", TimeSpan.Zero);
+        public string DisconnectTime
+        {
+            get
+            {
+                return _disconnectTime;
+            }
+            set
+            {
+                _disconnectTime = value;
+                OnPropertyChanged("DisconnectTime");
+            }
+        }
+
+        /// <summary>
+        /// implement of property
+        /// </summary>
+        /// <returns>value in property</returns>
+        private string _startReceiveTime = string.Format(" {0}", TimeSpan.Zero);
+        public string StartReceiveTime
+        {
+            get
+            {
+                return _startReceiveTime;
+            }
+            set
+            {
+                _startReceiveTime = value;
+                OnPropertyChanged("StartReceiveTime");
+            }
+        }
+
+        /// <summary>
+        /// implement of property
+        /// </summary>
+        /// <returns>value in property</returns>
+        private string _stopReceiveTime = string.Format(" {0}", TimeSpan.Zero);
+        public string StopReceiveTime
+        {
+            get
+            {
+                return _stopReceiveTime;
+            }
+            set
+            {
+                _stopReceiveTime = value;
+                OnPropertyChanged("StopReceiveTime");
+            }
+        }
+
+        /// <summary>
+        /// implement of property
+        /// </summary>
+        /// <returns>value in property</returns>
         private bool _isOpenFile = false;
         public bool IsOpenFile
         {
@@ -81,18 +153,17 @@ namespace MnStudio.ViewModels
         /// implement of property
         /// </summary>
         /// <returns>value in property</returns>
-        private bool _isConnectMiddleWare = false;
-        public bool IsConnectMiddleWare
+        private bool _isUsedLogin = false;
+        public bool IsUsedLogin
         {
             get
             {
-                return _isConnectMiddleWare;
+                return _isUsedLogin;
             }
             set
             {
-                _isConnectMiddleWare = value;
-
-                OnPropertyChanged("IsConnectMiddleWare");
+                _isUsedLogin = value;
+                OnPropertyChanged("IsUsedLogin");
             }
         }
 
@@ -114,21 +185,39 @@ namespace MnStudio.ViewModels
             }
         }
 
+            /// <summary>
+        /// implement of property
+        /// </summary>
+        /// <returns>value in property</returns>
+        private bool _isConnectMiddleWare = AppController.UsedMiddleWare;
+        public bool IsConnectMiddleWare
+        {
+            get
+            {
+                return _isConnectMiddleWare;
+            }
+            set
+            {
+                _isConnectMiddleWare = value;
+                OnPropertyChanged("IsConnectMiddleWare");
+            }
+        }
+
         /// <summary>
         /// implement of property
         /// </summary>
         /// <returns>value in property</returns>
-        private bool _isDrawRender = false;
-        public bool IsDrawRender
+        private bool _isReceiveMessage = false;
+        public bool IsReceiveMessage
         {
             get
             {
-                return _isDrawRender;
+                return _isReceiveMessage;
             }
             set
             {
-                _isDrawRender = value;
-                OnPropertyChanged("IsDrawRender");
+                _isReceiveMessage = value;
+                OnPropertyChanged("IsReceiveMessage");
             }
         }
 
@@ -188,7 +277,7 @@ namespace MnStudio.ViewModels
             }
         }
 
-        private void CallBackOpenFile(object sender)
+        private void OnOpenDocument(object sender)
         {
             if (sender == null)
                 return;
@@ -197,19 +286,19 @@ namespace MnStudio.ViewModels
             TotalCount = _document.Value.Count;
             CurrentCount = 0;
             IsOpenFile = true;
-            StatusMessage = "자막파일을 열었습니다.";
+            StatusMessage = "자막파일 불러오기를 성공하였습니다.";
         }
 
-        private void CallBackClearFile(object sender)
+        private void OnClearDocument(object sender)
         {
             _document = null;
             TotalCount = 0;
             CurrentCount = 0;
             IsOpenFile = false;
-            StatusMessage = "자막파일을 초기화 하였습니다.";
+            StatusMessage = "자막파일 초기화를 성공하였습니다.";
         }
 
-        private void CallBackUndoFile(object sender)
+        private void OnUndoFile(object sender)
         {
             if (_document == null)
                 return;
@@ -220,7 +309,7 @@ namespace MnStudio.ViewModels
             CurrentCount--;
         }
 
-        private void CallBackRedoFile(object sender)
+        private void OnRedoFile(object sender)
         {
             if (_document == null)
                 return;
@@ -231,22 +320,23 @@ namespace MnStudio.ViewModels
             CurrentCount++;
         }
 
-        private void CallBackChangedPlayType(object sender)
+        private void OnApplyStanBy(object sender)
         {
-            var type = (DRAWRULES)sender;
-            StatusMessage = string.Format("효과 {0} 가 적용되었습니다.", type.ToString());
+            StatusMessage = "송출 대기상태 입니다.";
         }
 
-        private void CallBackConnectServer(object sender)
+        private void OnConnectServer(object sender)
         {
             IsConnectServer = ServerController.Status;
             StatusMessage = "서버와 연결되었습니다.";
+            ConnectTime = string.Format(" {0}", DateTime.Now.ToString("hh:mm:ss"));
         }
 
-        private void CallBackDisconnectServer(object sender)
+        private void OnDisconnectServer(object sender)
         {
             IsConnectServer = ServerController.Status;
             StatusMessage = "서버와 연결이 해제되었습니다.";
+            DisconnectTime = string.Format(" {0}", DateTime.Now.ToString("hh:mm:ss"));
         }
 
         private void CallBackSendMessageServer(object sender)
@@ -254,32 +344,24 @@ namespace MnStudio.ViewModels
             StatusMessage = "메시지가 정상적으로 전송되었습니다.";
         }
 
-        private void CallBackReceiveMessageServer(object sender)
+        private void OnReceiveLogin(object sender)
         {
-            var message = (string)sender;
-            StatusMessage = message;
+            IsConnectServer = AppController.UsedLogin;
+            StatusMessage = "정상적으로 로그인 하였습니다.";
         }
 
-        private void CallBackConnectMiddleWare(object sender)
+        private void OnReceiveStart(object sender)
         {
-            IsConnectMiddleWare = MiddleWareController.Status;
-            StatusMessage = "미들웨어와 연결되었습니다.";
+            IsReceiveMessage = true;
+            StatusMessage = "메시지 수신을 시작하였습니다.";
+            StartReceiveTime = string.Format(" {0}", DateTime.Now.ToString("hh:mm:ss"));
         }
 
-        private void CallBackDisconnectMiddleWare(object sender)
+        private void OnReceiveStop(object sender)
         {
-            IsConnectMiddleWare = MiddleWareController.Status;
-            StatusMessage = "미들웨어와 연결이 해제되었습니다.";
-        }
-
-        private void CallBackSendMessageMiddleWare(object sender)
-        {
-            StatusMessage = "미들웨어에 정상적으로 요청되었습니다.";
-        }
-
-        private void CallBackReceiveMessageMiddleWare(object sender)
-        {
-            StatusMessage = "미들웨어에 정상적으로 수신되었습니다.";
+            IsReceiveMessage = false;
+            StatusMessage = "메시지 수신을 종료하였습니다.";
+            StopReceiveTime = string.Format(" {0}", DateTime.Now.ToString("hh:mm:ss"));
         }
     }
 }
